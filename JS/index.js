@@ -3705,6 +3705,9 @@ start.onclick = function () {
                             if (position1 == 9) {
 
                             }
+                            if (position1 == 10) {
+                                
+                            }
                             if (position1 == 11) {
 
                             }
