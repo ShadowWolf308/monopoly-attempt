@@ -769,7 +769,7 @@ start.onclick = function () {
     canvas.height = 700
     alive = true
     var go, chance1, chance2, chance3, communityChest1, communityChest2, communityChest3, incomeTax, luxuryTax, freeParking, jail, goToJail, readingRailroad, pennsylvaniaRailroad, bAndORailroad, shortLine, utilityFull, electricCompany, waterWorks, brownStreetsFull, mediteraneanAvenue, balticAvenue, lightblueStreetsFull, orientalAvenue, vermontAvenue, connecticutAvenue, pinkStreetsFull, stCharlesPlace, statesAvenue, virginiaAvenue, orangeStreetsFull, stJamesPlace, tennesseeAvenue, newYorkAvenue, redStreetsFull, kentuckyAvenue, indianaAvenue, illinoisAvenue, yellowStreetsFull, atlanticAvenue, ventnorAvenue, marvinGardens, greenStreetsFull, pacificAvenue, northCarolinaAvenue, pennsylvaniaAvenue, blueStreetsFull, parkPlace, boardwalk
-    var position1, position2, position3, position4, cash1, cash2, cash3, cash4, turn1, turn2, turn3, turn4, taxTurn1, taxTurn2, taxTurn3, taxTurn4, x1, y1, x2, y2, x3, y3, x4, y4, width, height, roll, yes, no, rollDone, turn1over, turn2over, turn3over, turn4over, rollAmount1, rollAmount2, doubleAmount, double, inJail1, inJail2, inJail3, inJail4, bankrupt1, bankrupt2, bankrupt3, bankrupt4
+    var position1, position2, position3, position4, cash1, cash2, cash3, cash4, turn1, turn2, turn3, turn4, taxTurn1, taxTurn2, taxTurn3, taxTurn4, x1, y1, x2, y2, x3, y3, x4, y4, width, height, roll, yes, no, rollDone, turn1over, turn2over, turn3over, turn4over, rollAmount1, rollAmount2, doubleAmount, double, inJail1, inJail2, inJail3, inJail4, bankrupt1, bankrupt2, bankrupt3, bankrupt4, jailcard1, jailcard2, jailcard3, jailcard4, railroadsOwned1, railroadsOwned2, railroadsOwned3, railroadsOwned4
     cash1 = 2500
     cash2 = 2500
     cash3 = 2500
@@ -778,6 +778,10 @@ start.onclick = function () {
     turn2 = false
     turn3 = false
     turn4 = false
+    railroadsOwned1 = 0
+    railroadsOwned2 = 0
+    railroadsOwned3 = 0
+    railroadsOwned4 = 0
     if (player1enter) turn1 = true
     else if (player2enter) turn2 = true
     else if (player3enter) turn3 = true
@@ -793,6 +797,10 @@ start.onclick = function () {
     taxTurn2 = true
     taxTurn3 = true
     taxTurn4 = true
+    jailcard1 = 0
+    jailcard2 = 0
+    jailcard3 = 0
+    jailcard4 = 0
     doubleAmount = 0
     double = false
     rollAmount1 = 0
@@ -1054,6 +1062,2260 @@ start.onclick = function () {
     y3 = 0
     x4 = 0
     y4 = 0
+    function ccCardDraw() {
+        var card = Math.floor(Math.random() * 16)
+        if (card == 0) {
+            document.getElementById("card").innerHTML = "Advance to Go (collect 200)"
+            if (turn1) cash1 += go.amount
+            else if (turn2) cash2 += go.amount
+            else if (turn3) cash3 += go.amount
+            else if (turn4) cash4 += go.amount
+        }
+        else if (card == 1) {
+            document.getElementById("card").innerHTML = "Bank error in your favor. Collect 200"
+            if (turn1) cash1 += 200
+            else if (turn2) cash2 += 200
+            else if (turn3) cash3 += 200
+            else if (turn4) cash4 += 200
+        }
+        else if (card == 2) {
+            document.getElementById("card").innerHTML = "Doctor's fee. Pay 50"
+            if (turn1) cash1 -= 50
+            else if (turn2) cash2 -= 50
+            else if (turn3) cash3 -= 50
+            else if (turn4) cash4 -= 50
+        }
+        else if (card == 3) {
+            document.getElementById("card").innerHTML = "From sale of stock you get 50"
+            if (turn1) cash1 += 50
+            else if (turn2) cash2 += 50
+            else if (turn3) cash3 += 50
+            else if (turn4) cash4 += 50
+        }
+        else if (card == 4) {
+            document.getElementById("card").innerHTML = "Get out of Jail Free"
+            if (turn1) jailcard1 += 1
+            else if (turn2) jailcard2 += 1
+            else if (turn3) jailcard3 += 1
+            else if (turn4) jailcard4 += 1
+        }
+        else if (card == 5) {
+            document.getElementById("card").innerHTML = "Go to Jail, do not pass Go, do not collect 200"
+            if (turn1) {
+                position1 = 10
+                inJail1 = 3
+            }
+            else if (turn2) {
+                position2 = 10
+                inJail2 = 3
+            }
+            else if (turn3) {
+                position3 = 10
+                inJail3 = 3
+            }
+            else if (turn4) {
+                position4 = 10
+                inJail4 = 3
+            }
+        }
+        else if (card == 6) {
+            document.getElementById("card").innerHTML = "Holiday fund matures. Receive 100"
+            if (turn1) cash1 += 100
+            else if (turn2) cash2 += 100
+            else if (turn3) cash3 += 100
+            else if (turn4) cash4 += 100
+        }
+        else if (card == 7) {
+            document.getElementById("card").innerHTML = "Income tax refund. Collect 20"
+            if (turn1) cash1 += 20
+            else if (turn2) cash2 += 20
+            else if (turn3) cash3 += 20
+            else if (turn4) cash4 += 20
+        }
+        else if (card == 8) {
+            document.getElementById("card").innerHTML = "It's your birtday. Collect 10 from every player"
+            if (turn1) {
+                if (player2enter && bankrupt2 == false) {
+                    cash1 += 10
+                    cash2 -= 10
+                }
+                if (player3enter && bankrupt3 == false) {
+                    cash1 += 10
+                    cash3 -= 10
+                }
+                if (player4enter && bankrupt4 == false) {
+                    cash1 += 10
+                    cash4 -= 10
+                }
+            }
+            else if (turn2) {
+                if (player1enter && bankrupt1 == false) {
+                    cash1 -= 10
+                    cash2 += 10
+                }
+                if (player3enter && bankrupt3 == false) {
+                    cash2 += 10
+                    cash3 -= 10
+                }
+                if (player4enter && bankrupt4 == false) {
+                    cash2 += 10
+                    cash4 -= 10
+                }
+            }
+            else if (turn3) {
+                if (player1enter && bankrupt1 == false) {
+                    cash3 += 10
+                    cash1 -= 10
+                }
+                if (player2enter && bankrupt2 == false) {
+                    cash3 += 10
+                    cash2 -= 10
+                }
+                if (player4enter && bankrupt4 == false) {
+                    cash3 += 10
+                    cash4 -= 10
+                }
+            }
+            else if (turn4) {
+                if (player1enter && bankrupt1 == false) {
+                    cash4 += 10
+                    cash1 -= 10
+                }
+                if (player2enter && bankrupt2 == false) {
+                    cash4 += 10
+                    cash2 -= 10
+                }
+                if (player3enter && bankrupt3 == false) {
+                    cash4 += 10
+                    cash3 -= 10
+                }
+            }
+        }
+        else if (card == 9) {
+            document.getElementById("card").innerHTML = "Life insurance matures. Collect 100"
+            if (turn1) cash1 += 100
+            else if (turn2) cash2 += 100
+            else if (turn3) cash3 += 100
+            else if (turn4) cash4 += 100
+        }
+        else if (card == 10) {
+            document.getElementById("card").innerHTML = "Pay hospital fees of 100"
+            if (turn1) cash1 -= 100
+            else if (turn2) cash2 -= 100
+            else if (turn3) cash3 -= 100
+            else if (turn4) cash4 -= 100
+        }
+        else if (card == 11) {
+            document.getElementById("card").innerHTML = "Pay school fees of 50"
+            if (turn1) cash1 -= 50
+            else if (turn2) cash2 -= 50
+            else if (turn3) cash3 -= 50
+            else if (turn4) cash4 -= 50
+        }
+        else if (card == 12) {
+            document.getElementById("card").innerHTML = "receive 25 consultancy fee"
+            if (turn1) cash1 += 25
+            else if (turn2) cash2 += 25
+            else if (turn3) cash3 += 25
+            else if (turn4) cash4 += 25
+        }
+        else if (card == 13) {
+            document.getElementById("card").innerHTML = "You are assessed for street repairs. 40 per house. 115 per hotel"
+            if (turn1) {
+
+            }
+            else if (turn2) {
+
+            }
+            else if (turn3) {
+
+            }
+            else if (turn4) {
+
+            }
+        }
+        else if (card == 14) {
+            document.getElementById("card").innerHTML = "You have won second prize in a beauty contest. collect 100"
+            if (turn1) cash1 += 100
+            else if (turn2) cash2 += 100
+            else if (turn3) cash3 += 100
+            else if (turn4) cash4 += 100
+        }
+        else if (card == 15) {
+            document.getElementById("card").innerHTML = "You inherit 100"
+            if (turn1) cash1 += 100
+            else if (turn2) cash2 += 100
+            else if (turn3) cash3 += 100
+            else if (turn4) cash4 += 100
+        }
+    }
+    function chanceCardDraw() {
+        var card = Math.floor(Math.random() * 16)
+        if (card == 0) {
+            document.getElementById("card").innerHTML = "Advance to Go (collect 200)"
+            if (turn1) cash1 += go.amount
+            else if (turn2) cash2 += go.amount
+            else if (turn3) cash3 += go.amount
+            else if (turn4) cash4 += go.amount
+        }
+        else if (card == 1) {
+            document.getElementById("card").innerHTML = "Advance to Boardwalk"
+            if (turn1) position1 = 39
+            else if (turn2) position2 = 39
+            else if (turn3) position3 = 39
+            else if (turn4) position4 = 39
+        }
+        else if (card == 2) {
+            document.getElementById("card").innerHTML = "Advance to Illinois Avenue. If you pass Go, Collect 200"
+            if (turn1) {
+                if (position1 > illinoisAvenue.place) cash1 += go.amount
+                position1 = illinoisAvenue.place
+            }
+            else if (turn2) {
+                if (position2 > illinoisAvenue.place) cash2 += go.amount
+                position2 = illinoisAvenue.place
+            }
+            else if (turn3) {
+                if (position3 > illinoisAvenue.place) cash3 += go.amount
+                position3 = illinoisAvenue.place
+            }
+            else if (turn4) {
+                if (position4 > illinoisAvenue.place) cash4 += go.amount
+                position4 = illinoisAvenue.place
+            }
+        }
+        else if (card == 3) {
+            document.getElementById("card").innerHTML = "Advance to St. Charles Place. If you pass Go, collect 200"
+            if (turn1) {
+                if (position1 > stCharlesPlace.place) cash1 += go.amount
+                position1 = stCharlesPlace.place
+            }
+            else if (turn2) {
+                if (position2 > stCharlesPlace.place) cash2 += go.amount
+                position2 = stCharlesPlace.place
+            }
+            else if (turn3) {
+                if (position3 > stCharlesPlace.place) cash3 += go.amount
+                position3 = stCharlesPlace.place
+            }
+            else if (turn4) {
+                if (position4 > stCharlesPlace.place) cash4 += go.amount
+                position4 = stCharlesPlace.place
+            }
+        }
+        else if (card == 4) {
+            document.getElementById("card").innerHTML = "Advance to the nearest Railroad. If owned pay the owner twice the amount normally owned"
+            if (turn1) {
+                if (position1 > 5 && position1 < 15) {
+                    position1 = 15
+                    if (pennsylvaniaRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position1 > 15 && position1 < 25) {
+                    position1 = 25
+                    if (bAndORailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position1 > 25 && position1 < 35) {
+                    position1 = 35
+                    if (shortLine.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position1 > 35 || position1 < 5) {
+                    position1 = 5
+                    if (readingRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+            }
+            else if (turn2) {
+                if (position2 > 5 && position2 < 15) {
+                    position2 = 15
+                    if (pennsylvaniaRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position2 > 15 && position2 < 25) {
+                    position2 = 25
+                    if (bAndORailroad.owner1 == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position2 > 25 && position2 < 35) {
+                    position2 = 35
+                    if (shortLine.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 100
+                        }
+                    }
+                    else if (shortLine.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position2 > 35 || position2 < 5) {
+                    position2 = 5
+                    if (readingRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+            }
+            else if (turn3) {
+                if (position3 > 5 && position3 < 15) {
+                    position3 = 15
+                    if (pennsylvaniaRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position3 > 15 && position3 < 25) {
+                    position3 = 25
+                    if (bAndORailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position3 > 25 && position3 < 35) {
+                    position3 = 35
+                    if (shortLine.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position3 > 35 || position3 < 5) {
+                    position3 = 5
+                    if (readingRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+            }
+            else if (turn4) {
+                if (position4 > 5 && position4 < 15) {
+                    position4 = 15
+                    if (pennsylvaniaRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+                else if (position4 > 15 && position4 < 25) {
+                    position4 = 25
+                    if (bAndORailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+                else if (position4 > 25 && position4 < 35) {
+                    position4 = 35
+                    if (shortLine.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+                else if (position4 > 35 || position4 < 5) {
+                    position4 = 5
+                    if (readingRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+            }
+        }
+        else if (card == 5) {
+            document.getElementById("card").innerHTML = "Advance to the nearest Railroad. If owned pay the owner twice the amount normally owned"
+            if (turn1) {
+                if (position1 > 5 && position1 < 15) {
+                    position1 = 15
+                    if (pennsylvaniaRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position1 > 15 && position1 < 25) {
+                    position1 = 25
+                    if (bAndORailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position1 > 25 && position1 < 35) {
+                    position1 = 35
+                    if (shortLine.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position1 > 35 || position1 < 5) {
+                    position1 = 5
+                    if (readingRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash1 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash1 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash1 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash1 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash1 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash1 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash1 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash1 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash1 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash1 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash1 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash1 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+            }
+            else if (turn2) {
+                if (position2 > 5 && position2 < 15) {
+                    position2 = 15
+                    if (pennsylvaniaRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position2 > 15 && position2 < 25) {
+                    position2 = 25
+                    if (bAndORailroad.owner1 == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position2 > 25 && position2 < 35) {
+                    position2 = 35
+                    if (shortLine.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 100
+                        }
+                    }
+                    else if (shortLine.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position2 > 35 || position2 < 5) {
+                    position2 = 5
+                    if (readingRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash2 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash2 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash2 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash2 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash2 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash2 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash2 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash2 -= 200
+                            cash3 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash2 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash2 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash2 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash2 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+            }
+            else if (turn3) {
+                if (position3 > 5 && position3 < 15) {
+                    position3 = 15
+                    if (pennsylvaniaRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position3 > 15 && position3 < 25) {
+                    position3 = 25
+                    if (bAndORailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position3 > 25 && position3 < 35) {
+                    position3 = 35
+                    if (shortLine.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+                else if (position3 > 35 || position3 < 5) {
+                    position3 = 5
+                    if (readingRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash3 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash3 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash3 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash3 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash3 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash3 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash3 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash3 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 4) {
+                        if (railroadsOwned4 == 1) {
+                            cash3 -= 25
+                            cash4 += 25
+                        }
+                        else if (railroadsOwned4 == 2) {
+                            cash3 -= 50
+                            cash4 += 50
+                        }
+                        else if (railroadsOwned4 == 3) {
+                            cash3 -= 100
+                            cash4 += 100
+                        }
+                        else if (railroadsOwned4 == 4) {
+                            cash3 -= 200
+                            cash4 += 200
+                        }
+                    }
+                }
+            }
+            else if (turn4) {
+                if (position4 > 5 && position4 < 15) {
+                    position4 = 15
+                    if (pennsylvaniaRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (pennsylvaniaRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+                else if (position4 > 15 && position4 < 25) {
+                    position4 = 25
+                    if (bAndORailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (bAndORailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+                else if (position4 > 25 && position4 < 35) {
+                    position4 = 35
+                    if (shortLine.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (shortLine.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+                else if (position4 > 35 || position4 < 5) {
+                    position4 = 5
+                    if (readingRailroad.owner == 1) {
+                        if (railroadsOwned1 == 1) {
+                            cash4 -= 25
+                            cash1 += 25
+                        }
+                        else if (railroadsOwned1 == 2) {
+                            cash4 -= 50
+                            cash1 += 50
+                        }
+                        else if (railroadsOwned1 == 3) {
+                            cash4 -= 100
+                            cash1 += 100
+                        }
+                        else if (railroadsOwned1 == 4) {
+                            cash4 -= 200
+                            cash1 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 2) {
+                        if (railroadsOwned2 == 1) {
+                            cash4 -= 25
+                            cash2 += 25
+                        }
+                        else if (railroadsOwned2 == 2) {
+                            cash4 -= 50
+                            cash2 += 50
+                        }
+                        else if (railroadsOwned2 == 3) {
+                            cash4 -= 100
+                            cash2 += 100
+                        }
+                        else if (railroadsOwned2 == 4) {
+                            cash4 -= 200
+                            cash2 += 200
+                        }
+                    }
+                    else if (readingRailroad.owner == 3) {
+                        if (railroadsOwned3 == 1) {
+                            cash4 -= 25
+                            cash3 += 25
+                        }
+                        else if (railroadsOwned3 == 2) {
+                            cash4 -= 50
+                            cash3 += 50
+                        }
+                        else if (railroadsOwned3 == 3) {
+                            cash4 -= 100
+                            cash3 += 100
+                        }
+                        else if (railroadsOwned3 == 4) {
+                            cash4 -= 200
+                            cash3 += 200
+                        }
+                    }
+                }
+            }
+        }
+        else if (card == 6) {
+            document.getElementById("card").innerHTML = "Advance to the nearest utility"
+            if (turn1) {
+                if (position1 > electricCompany.place && position1 < waterWorks.place) position1 = waterWorks.place
+                else if (position1 > waterWorks.place || position1 < electricCompany.place) position1 = electricCompany
+            }
+            else if (turn2) {
+                if (position2 > electricCompany.place && position2 < waterWorks.place) position2 = waterWorks.place
+                else if (position2 > waterWorks.place || position2 < electricCompany.place) position2 = electricCompany.place
+            }
+            else if (turn3) {
+                if (position3 > electricCompany.place && position3 < waterWorks.place) position3 = waterWorks.place
+                else if (position3 > waterWorks.place || position3 < electricCompany.place) position3 = electricCompany.place
+            }
+            else if (turn4) {
+                if (position4 > electricCompany.place && position4 < waterWorks.place) position4 = waterWorks.place
+                else if (position4 > waterWorks.place || position4 < electricCompany.place) position4 = electricCompany.place
+            }
+        }
+        else if (card == 7) {
+            document.getElementById("card").innerHTML = "Bank pays you dividend of 50"
+            if (turn1) cash1 += 50
+            else if (turn2) cash2 += 50
+            else if (turn3) cash3 += 50
+            else if (turn4) cash4 += 50
+        }
+        else if (card == 8) {
+            document.getElementById("card").innerHTML = "Get out of Jail Free"
+            if (turn1) jailcard1++
+            else if (turn2) jailcard2++
+            else if (turn3) jailcard3++
+            else if (turn4) jailcard4++
+        }
+        else if (card == 9) {
+            document.getElementById("card").innerHTML = "go back 3 spaces"
+            if (turn1) position1 -= 3
+            else if (turn2) position2 -= 3
+            else if (turn3) position3 -= 3
+            else if (turn4) position4 -= 3
+        }
+        else if (card == 10) {
+            document.getElementById("card").innerHTML = "Go to Jail, do not pass Go, do not collect 200"
+            if (turn1) {
+                position1 = 10
+                inJail1 = 3
+            }
+            else if (turn2) {
+                position2 = 10
+                inJail2 = 3
+            }
+            else if (turn3) {
+                position3 = 10
+                inJail3 = 3
+            }
+            else if (turn4){
+                position4 = 10
+                inJail4 = 3
+            }
+        }
+        else if (card == 11) {
+            document.getElementById("card").innerHTML = "Make general repairs on all property. For each house pay 25. For each hotel pay 1--"
+            if (turn1){
+
+            }
+            else if (turn2){
+
+            }
+            else if (turn3){
+
+            }
+            else if (turn4){
+
+            }
+        }
+        else if (card == 12) {
+            document.getElementById("card").innerHTML = "Speeding fine 15"
+            if (turn1) cash1 -= 15
+            else if (turn2) cash2 -= 15
+            else if (turn3) cash3 -= 15
+            else if (turn4) cash4 -= 15
+        }
+        else if (card == 13) {
+            document.getElementById("card").innerHTML = "Take a trip to Reading Railroad. If you go past Go, collect 200"
+            if (turn1) {
+                if (position1 > 5) cash1 += go.amount
+                position1 = 5
+            }
+            else if (turn2) {
+                if (position2 > 5) cash2 += go.amount
+                position2 = 5
+            }
+            else if (turn3) {
+                if (position3 > 5) cash3 += go.amount
+                position3 = 5
+            }
+            else if (turn4) {
+                if (position4 > 5) cash4 += go.amount
+                position4 = 5
+            }
+        }
+        else if (card == 14) {
+            document.getElementById("card").innerHTML = "You have been elected Chairman of the Board. Pay each player 50"
+            if (turn1) {
+                if (player2enter && bankrupt2 == false) {
+                    cash1 -= 50
+                    cash2 += 50
+                }
+                if (player3enter && bankrupt3 == false) {
+                    cash1 -= 50
+                    cash3 += 50
+                }
+                if (player4enter && bankrupt4 == false) {
+                    cash1 -= 50
+                    cash4 += 50
+                }
+            }
+            else if (turn2) {
+                if (player1enter && bankrupt1 == false) {
+                    cash2 -= 50
+                    cash1 += 50
+                }
+                if (player3enter && bankrupt3 == false) {
+                    cash2 -= 50
+                    cash3 += 50
+                }
+                if (player4enter && bankrupt4 == false) {
+                    cash2 -= 50
+                    cash4 += 50
+                }
+            }
+            else if (turn3) {
+                if (player1enter && bankrupt1 == false) {
+                    cash3 -= 50
+                    cash1 += 50
+                }
+                if (player2enter && bankrupt2 == false) {
+                    cash3 -= 50
+                    cash2 += 50
+                }
+                if (player4enter && bankrupt4 == false) {
+                    cash3 -= 50
+                    cash4 += 50
+                }
+            }
+            else if (turn4) {
+                if (player1enter && bankrupt1 == false) {
+                    cash4 -= 50
+                    cash1 += 50
+                }
+                if (player2enter && bankrupt2 == false) {
+                    cash4 -= 50
+                    cash2 += 50
+                }
+                if (player3enter && bankrupt3 == false) {
+                    cash4 -= 50
+                    cash3 += 50
+                }
+            }
+        }
+        else if (card == 15) {
+            document.getElementById("card").innerHTML = "Your building loan matures. Collect 150"
+            if (turn1) cash1 += 150
+            else if (turn2) cash2 += 150
+            else if (turn3) cash3 += 150
+            else if (turn4) cash4 += 150
+        }
+    }
     function pastGo() {
         if (position1 > 39) {
             position1 -= 39
@@ -1171,7 +3433,7 @@ start.onclick = function () {
     }
     function move() {
         if (turn1) {
-            if (roll == true) {
+            if (roll) {
                 if (rollDone == false) {
                     rollDone = true
                     rollAmount1 = Math.floor(Math.random() * 6) + 1
@@ -1184,10 +3446,14 @@ start.onclick = function () {
                         double = true
                         doubleAmount += 1
                         inJail1 = 0
-                        if (doubleAmount = 3) {
+                        if (doubleAmount == 3) {
                             position1 = 10
                             inJail1 = 3
                         }
+                    }
+                    if (jailcard1 > 0 && inJail1 > 0) {
+                        jailcard1--
+                        inJail1 = 0
                     }
                     if (inJail1 == 0) {
                         setTimeout(() => {
@@ -1200,8 +3466,9 @@ start.onclick = function () {
                                     document.getElementById("buy").style.display = "block"
                                     document.getElementById("price").innerHTML = " " + mediteraneanAvenue.price
                                 }
-                                else if (mediteraneanAvenue.owner == 1) {
-
+                                else if (mediteraneanAvenue.owner == 1 && mediteraneanAvenue.houseAmount < 5) {
+                                    document.getElementById("house").style.display = "block"
+                                    document.getElementById("houseprice").innerHTML = " " + 50
                                 }
                                 else if (mediteraneanAvenue.owner == 2) {
                                     document.getElementById("pay").style.display = "block"
@@ -1415,13 +3682,13 @@ start.onclick = function () {
                                 }
                             }
                             if (position1 == 2) {
-
+                                ccCardDraw()
                             }
                             if (position1 == 3) {
 
                             }
                             if (position1 == 4) {
-
+                                cash1 -= incomeTax.taxAmount
                             }
                             if (position1 == 5) {
 
@@ -1430,15 +3697,12 @@ start.onclick = function () {
 
                             }
                             if (position1 == 7) {
-
+                                chanceCardDraw()
                             }
                             if (position1 == 8) {
 
                             }
                             if (position1 == 9) {
-
-                            }
-                            if (position1 == 10) {
 
                             }
                             if (position1 == 11) {
@@ -1460,7 +3724,7 @@ start.onclick = function () {
 
                             }
                             if (position1 == 17) {
-
+                                ccCardDraw()
                             }
                             if (position1 == 18) {
 
@@ -1469,13 +3733,13 @@ start.onclick = function () {
 
                             }
                             if (position1 == 20) {
-
+                                cash1 += freeParking.collectedTax
                             }
                             if (position1 == 21) {
 
                             }
                             if (position1 == 22) {
-
+                                chanceCardDraw()
                             }
                             if (position1 == 23) {
 
@@ -1499,7 +3763,8 @@ start.onclick = function () {
 
                             }
                             if (position1 == 30) {
-
+                                position1 = 10
+                                inJail1 = 3
                             }
                             if (position1 == 31) {
 
@@ -1508,7 +3773,7 @@ start.onclick = function () {
 
                             }
                             if (position1 == 33) {
-
+                                ccCardDraw()
                             }
                             if (position1 == 34) {
 
@@ -1517,15 +3782,15 @@ start.onclick = function () {
 
                             }
                             if (position1 == 36) {
-
+                                chanceCardDraw()
                             }
                             if (position1 == 37) {
 
                             }
                             if (position1 == 38) {
-
+                                cash1 -= luxuryTax.taxAmount
                             }
-                            if (position1 == 30) {
+                            if (position1 == 39) {
 
                             }
                         }, 500);
@@ -1534,6 +3799,9 @@ start.onclick = function () {
             }
             else if (double) {
                 roll = false
+                document.getElementById("pay").style.display = "none"
+                document.getElementById("house").style.display = "none"
+                document.getElementById("buy").style.display = "none"
             }
             else {
                 if (inJail1 > 0) inJail1--

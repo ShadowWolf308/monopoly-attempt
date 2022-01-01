@@ -151,3 +151,8 @@ body {
 #roll {
     display: none;
 }
+#house {
+    /* display: none; */
+    color: white;
+    float: left;
+}
