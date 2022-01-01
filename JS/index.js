@@ -1093,7 +1093,7 @@ start.onclick = function () {
             else if (turn4) cash4 += 50
         }
         else if (card == 4) {
-            document.getElementById("card").innerHTML = "Get out of Jail Free"
+            document.getElementById("card").innerHTML = "Get out of Jail instantly"
             if (turn1) jailcard1 += 1
             else if (turn2) jailcard2 += 1
             else if (turn3) jailcard3 += 1
@@ -3176,7 +3176,7 @@ start.onclick = function () {
             else if (turn4) cash4 += 50
         }
         else if (card == 8) {
-            document.getElementById("card").innerHTML = "Get out of Jail Free"
+            document.getElementById("card").innerHTML = "Get out of Jail instantly"
             if (turn1) jailcard1++
             else if (turn2) jailcard2++
             else if (turn3) jailcard3++
