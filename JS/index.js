@@ -769,7 +769,7 @@ start.onclick = function () {
     canvas.height = 700
     alive = true
     var go, chance1, chance2, chance3, communityChest1, communityChest2, communityChest3, incomeTax, luxuryTax, freeParking, jail, goToJail, readingRailroad, pennsylvaniaRailroad, bAndORailroad, shortLine, utilityFull, electricCompany, waterWorks, brownStreetsFull, mediteraneanAvenue, balticAvenue, lightblueStreetsFull, orientalAvenue, vermontAvenue, connecticutAvenue, pinkStreetsFull, stCharlesPlace, statesAvenue, virginiaAvenue, orangeStreetsFull, stJamesPlace, tennesseeAvenue, newYorkAvenue, redStreetsFull, kentuckyAvenue, indianaAvenue, illinoisAvenue, yellowStreetsFull, atlanticAvenue, ventnorAvenue, marvinGardens, greenStreetsFull, pacificAvenue, northCarolinaAvenue, pennsylvaniaAvenue, blueStreetsFull, parkPlace, boardwalk
-    var position1, position2, position3, position4, cash1, cash2, cash3, cash4, turn1, turn2, turn3, turn4, taxTurn1, taxTurn2, taxTurn3, taxTurn4, x1, y1, x2, y2, x3, y3, x4, y4, width, height, roll, yes, no, rollDone, turn1over, turn2over, turn3over, turn4over, rollAmount1, rollAmount2, doubleAmount, double, inJail1, inJail2, inJail3, inJail4, bankrupt1, bankrupt2, bankrupt3, bankrupt4, jailcard1, jailcard2, jailcard3, jailcard4, railroadsOwned1, railroadsOwned2, railroadsOwned3, railroadsOwned4
+    var position1, position2, position3, position4, cash1, cash2, cash3, cash4, turn1, turn2, turn3, turn4, taxTurn1, taxTurn2, taxTurn3, taxTurn4, x1, y1, x2, y2, x3, y3, x4, y4, width, height, roll, yes, no, rollDone, turn1over, turn2over, turn3over, turn4over, rollAmount1, rollAmount2, doubleAmount, double, inJail1, inJail2, inJail3, inJail4, bankrupt1, bankrupt2, bankrupt3, bankrupt4, jailcard1, jailcard2, jailcard3, jailcard4, railroadsOwned1, railroadsOwned2, railroadsOwned3, railroadsOwned4, house1, house2, house3, house4, hotel1, hotel2, hotel3, hotel4
     cash1 = 2500
     cash2 = 2500
     cash3 = 2500
@@ -1062,6 +1062,582 @@ start.onclick = function () {
     y3 = 0
     x4 = 0
     y4 = 0
+    function bankruptCheck() {
+        if (cash1 < 0) {
+            bankrupt1 = true
+        }
+        if (cash2 < 0) {
+            bankrupt2 = true
+        }
+        if (cash3 < 0) {
+            bankrupt3 = true
+        }
+        if (cash4 < 0) {
+            bankrupt4 = true
+        }
+    }
+    function houseCheck() {
+        if (mediteraneanAvenue.owner == 1) {
+            if (mediteraneanAvenue.houseAmount == 1) house1++
+            else if (mediteraneanAvenue.houseAmount == 2) house1 += 2
+            else if (mediteraneanAvenue.houseAmount == 3) house1 += 3
+            else if (mediteraneanAvenue.houseAmount == 4) house1 += 4
+            else if (mediteraneanAvenue.houseAmount == 5) hotel1++
+        }
+        else if (mediteraneanAvenue.owner == 2) {
+            if (mediteraneanAvenue.houseAmount == 1) house2++
+            else if (mediteraneanAvenue.houseAmount == 2) house2 += 2
+            else if (mediteraneanAvenue.houseAmount == 3) house2 += 3
+            else if (mediteraneanAvenue.houseAmount == 4) house2 += 4
+            else if (mediteraneanAvenue.houseAmount == 5) hotel2++
+        }
+        else if (mediteraneanAvenue.owner == 3) {
+            if (mediteraneanAvenue.houseAmount == 1) house3++
+            else if (mediteraneanAvenue.houseAmount == 2) house3 += 2
+            else if (mediteraneanAvenue.houseAmount == 3) house3 += 3
+            else if (mediteraneanAvenue.houseAmount == 4) house3 += 4
+            else if (mediteraneanAvenue.houseAmount == 4) hotel3++
+        }
+        else if (mediteraneanAvenue.owner == 4) {
+            if (mediteraneanAvenue.houseAmount == 1) house4++
+            else if (mediteraneanAvenue.houseAmount == 2) house4 += 2
+            else if (mediteraneanAvenue.houseAmount == 3) house4 += 3
+            else if (mediteraneanAvenue.houseAmount == 4) house4 += 4
+            else if (mediteraneanAvenue.houseAmount == 5) hotel4++
+        }
+        if (balticAvenue.owner == 1) {
+            if (balticAvenue.houseAmount == 1) house1++
+            else if (balticAvenue.houseAmount == 2) house1 += 2
+            else if (balticAvenue.houseAmount == 3) house1 += 3
+            else if (balticAvenue.houseAmount == 4) house1 += 4
+            else if (balticAvenue.houseAmount == 5) hotel1++
+        }
+        else if (balticAvenue.owner == 2) {
+            if (balticAvenue.houseAmount == 1) house2++
+            else if (balticAvenue.houseAmount == 2) house2 += 2
+            else if (balticAvenue.houseAmount == 3) house2 += 3
+            else if (balticAvenue.houseAmount == 4) house2 += 4
+            else if (balticAvenue.houseAmount == 5) hotel2++
+        }
+        else if (balticAvenue.owner == 3) {
+            if (balticAvenue.houseAmount == 1) house3++
+            else if (balticAvenue.houseAmount == 2) house3 += 2
+            else if (balticAvenue.houseAmount == 3) house3 += 3
+            else if (balticAvenue.houseAmount == 4) house3 += 4
+            else if (balticAvenue.houseAmount == 5) hotel3++
+        }
+        else if (balticAvenue.owner == 4) {
+            if (balticAvenue.houseAmount == 1) house4++
+            else if (balticAvenue.houseAmount == 2) house4 += 2
+            else if (balticAvenue.houseAmount == 3) house4 += 3
+            else if (balticAvenue.houseAmount == 4) house4 += 4
+            else if (balticAvenue.houseAmount == 5) hotel4++
+        }
+        if (orientalAvenue.owner == 1) {
+            if (orientalAvenue.houseAmount == 1) house1++
+            else if (orientalAvenue.houseAmount == 2) house1 += 2
+            else if (orientalAvenue.houseAmount == 3) house1 += 3
+            else if (orientalAvenue.houseAmount == 4) house1 += 4
+            else if (orientalAvenue.houseAmount == 5) hotel1++
+        }
+        else if (orientalAvenue.owner == 2) {
+            if (orientalAvenue.houseAmount == 1) house2++
+            else if (orientalAvenue.houseAmount == 2) house2 += 2
+            else if (orientalAvenue.houseAmount == 3) house2 += 3
+            else if (orientalAvenue.houseAmount == 4) house2 += 4
+            else if (orientalAvenue.houseAmount == 5) hotel2++
+        }
+        else if (orientalAvenue.owner == 3) {
+            if (orientalAvenue.houseAmount == 1) house3++
+            else if (orientalAvenue.houseAmount == 2) house3 += 2
+            else if (orientalAvenue.houseAmount == 3) house3 += 3
+            else if (orientalAvenue.houseAmount == 4) house3 += 4
+            else if (orientalAvenue.houseAmount == 5) hotel3++
+        }
+        else if (orientalAvenue.owner == 4) {
+            if (orientalAvenue.houseAmount == 1) house4++
+            else if (orientalAvenue.houseAmount == 2) house4 += 2
+            else if (orientalAvenue.houseAmount == 3) house4 += 3
+            else if (orientalAvenue.houseAmount == 4) house4 += 4
+            else if (orientalAvenue.houseAmount == 5) hotel4++
+        }
+        if (vermontAvenue.owner == 1) {
+            if (vermontAvenue.houseAmount == 1) house1++
+            else if (vermontAvenue.houseAmount == 2) house1 += 2
+            else if (vermontAvenue.houseAmount == 3) house1 += 3
+            else if (vermontAvenue.houseAmount == 4) house1 += 4
+            else if (vermontAvenue.houseAmount == 5) hotel1++
+        }
+        else if (vermontAvenue.owner == 2) {
+            if (vermontAvenue.houseAmount == 1) house2++
+            else if (vermontAvenue.houseAmount == 2) house2 += 2
+            else if (vermontAvenue.houseAmount == 3) house2 += 3
+            else if (vermontAvenue.houseAmount == 4) house2 += 4
+            else if (vermontAvenue.houseAmount == 5) hotel2++
+        }
+        else if (vermontAvenue.owner == 3) {
+            if (vermontAvenue.houseAmount == 1) house3++
+            else if (vermontAvenue.houseAmount == 2) house3 += 2
+            else if (vermontAvenue.houseAmount == 3) house3 += 3
+            else if (vermontAvenue.houseAmount == 4) house3 += 4
+            else if (vermontAvenue.houseAmount == 5) hotel3++
+        }
+        else if (vermontAvenue.owner == 4) {
+            if (vermontAvenue.houseAmount == 1) house4++
+            else if (vermontAvenue.houseAmount == 2) house4 += 2
+            else if (vermontAvenue.houseAmount == 3) house4 += 3
+            else if (vermontAvenue.houseAmount == 4) house4 += 4
+            else if (vermontAvenue.houseAmount == 5) hotel4++
+        }
+        if (connecticutAvenue.owner == 1) {
+            if (connecticutAvenue.houseAmount == 1) house1++
+            else if (connecticutAvenue.houseAmount == 2) house1 += 2
+            else if (connecticutAvenue.houseAmount == 3) house1 += 3
+            else if (connecticutAvenue.houseAmount == 4) house1 += 4
+            else if (connecticutAvenue.houseAmount == 5) hotel1++
+        }
+        else if (connecticutAvenue.owner == 2) {
+            if (connecticutAvenue.houseAmount == 1) house2++
+            else if (connecticutAvenue.houseAmount == 2) house2 += 2
+            else if (connecticutAvenue.houseAmount == 3) house2 += 3
+            else if (connecticutAvenue.houseAmount == 4) house2 += 4
+            else if (connecticutAvenue.houseAmount == 5) hotel2++
+        }
+        else if (connecticutAvenue.owner == 3) {
+            if (connecticutAvenue.houseAmount == 1) house3++
+            else if (connecticutAvenue.houseAmount == 2) house3 += 2
+            else if (connecticutAvenue.houseAmount == 3) house3 += 3
+            else if (connecticutAvenue.houseAmount == 4) house3 += 4
+            else if (connecticutAvenue.houseAmount == 5) hotel3++
+        }
+        else if (connecticutAvenue.owner == 4) {
+            if (connecticutAvenue.houseAmount == 1) house4++
+            else if (connecticutAvenue.houseAmount == 2) house4 += 2
+            else if (connecticutAvenue.houseAmount == 3) house4 += 3
+            else if (connecticutAvenue.houseAmount == 4) house4 += 4
+            else if (connecticutAvenue.houseAmount == 5) hotel4++
+        }
+        if (stCharlesPlace.owner == 1) {
+            if (stCharlesPlace.houseAmount == 1) house1++
+            else if (stCharlesPlace.houseAmount == 2) house1 += 2
+            else if (stCharlesPlace.houseAmount == 3) house1 += 3
+            else if (stCharlesPlace.houseAmount == 4) house1 += 4
+            else if (stCharlesPlace.houseAmount == 5) hotel1++
+        }
+        else if (stCharlesPlace.owner == 2) {
+            if (stCharlesPlace.houseAmount == 1) house2++
+            else if (stCharlesPlace.houseAmount == 2) house2 += 2
+            else if (stCharlesPlace.houseAmount == 3) house2 += 3
+            else if (stCharlesPlace.houseAmount == 4) house2 += 4
+            else if (stCharlesPlace.houseAmount == 5) hotel2++
+        }
+        else if (stCharlesPlace.owner == 3) {
+            if (stCharlesPlace.houseAmount == 1) house3++
+            else if (stCharlesPlace.houseAmount == 2) house3 += 2
+            else if (stCharlesPlace.houseAmount == 3) house3 += 3
+            else if (stCharlesPlace.houseAmount == 4) house3 += 4
+            else if (stCharlesPlace.houseAmount == 5) hotel3++
+        }
+        else if (stCharlesPlace.owner == 4) {
+            if (stCharlesPlace.houseAmount == 1) house4++
+            else if (stCharlesPlace.houseAmount == 2) house4 += 2
+            else if (stCharlesPlace.houseAmount == 3) house4 += 3
+            else if (stCharlesPlace.houseAmount == 4) house4 += 4
+            else if (stCharlesPlace.houseAmount == 5) hotel4++
+        }
+        if (statesAvenue.owner == 1) {
+            if (statesAvenue.houseAmount == 1) house1++
+            else if (statesAvenue.houseAmount == 2) house1 += 2
+            else if (statesAvenue.houseAmount == 3) house1 += 3
+            else if (statesAvenue.houseAmount == 4) house1 += 4
+            else if (statesAvenue.houseAmount == 5) hotel1++
+        }
+        else if (statesAvenue.owner == 2) {
+            if (statesAvenue.houseAmount == 1) house2++
+            else if (statesAvenue.houseAmount == 2) house2 += 2
+            else if (statesAvenue.houseAmount == 3) house2 += 3
+            else if (statesAvenue.houseAmount == 4) house2 += 4
+            else if (statesAvenue.houseAmount == 5) hotel2++
+        }
+        else if (statesAvenue.owner == 3) {
+            if (statesAvenue.houseAmount == 1) house3++
+            else if (statesAvenue.houseAmount == 2) house3 += 2
+            else if (statesAvenue.houseAmount == 3) house3 += 3
+            else if (statesAvenue.houseAmount == 4) house3 += 4
+            else if (statesAvenue.houseAmount == 5) hotel3++
+        }
+        else if (statesAvenue.owner == 4) {
+            if (statesAvenue.houseAmount == 1) house4++
+            else if (statesAvenue.houseAmount == 2) house4 += 2
+            else if (statesAvenue.houseAmount == 3) house4 += 3
+            else if (statesAvenue.houseAmount == 4) house4 += 4
+            else if (statesAvenue.houseAmount == 5) hotel4++
+        }
+        if (newYorkAvenue.owner == 1) {
+            if (newYorkAvenue.houseAmount == 1) house1++
+            else if (newYorkAvenue.houseAmount == 2) house1 += 2
+            else if (newYorkAvenue.houseAmount == 3) house1 += 3
+            else if (newYorkAvenue.houseAmount == 4) house1 += 4
+            else if (newYorkAvenue.houseAmount == 5) hotel1++
+        }
+        else if (newYorkAvenue.owner == 2) {
+            if (newYorkAvenue.houseAmount == 1) house2++
+            else if (newYorkAvenue.houseAmount == 2) house2 += 2
+            else if (newYorkAvenue.houseAmount == 3) house2 += 3
+            else if (newYorkAvenue.houseAmount == 4) house2 += 4
+            else if (newYorkAvenue.houseAmount == 5) hotel2++
+        }
+        else if (newYorkAvenue.owner == 3) {
+            if (newYorkAvenue.houseAmount == 1) house3++
+            else if (newYorkAvenue.houseAmount == 2) house3 += 2
+            else if (newYorkAvenue.houseAmount == 3) house3 += 3
+            else if (newYorkAvenue.houseAmount == 4) house3 += 4
+            else if (newYorkAvenue.houseAmount == 5) hotel3++
+        }
+        else if (newYorkAvenue.owner == 4) {
+            if (newYorkAvenue.houseAmount == 1) house4++
+            else if (newYorkAvenue.houseAmount == 2) house4 += 2
+            else if (newYorkAvenue.houseAmount == 3) house4 += 3
+            else if (newYorkAvenue.houseAmount == 4) house4 += 4
+            else if (newYorkAvenue.houseAmount == 5) hotel4++
+        }
+        if (tennesseeAvenue.owner == 1) {
+            if (tennesseeAvenue.houseAmount == 1) house1++
+            else if (tennesseeAvenue.houseAmount == 2) house1 += 2
+            else if (tennesseeAvenue.houseAmount == 3) house1 += 3
+            else if (tennesseeAvenue.houseAmount == 4) house1 += 4
+            else if (tennesseeAvenue.houseAmount == 5) hotel1++
+        }
+        else if (tennesseeAvenue.owner == 2) {
+            if (tennesseeAvenue.houseAmount == 1) house2++
+            else if (tennesseeAvenue.houseAmount == 2) house2 += 2
+            else if (tennesseeAvenue.houseAmount == 3) house2 += 3
+            else if (tennesseeAvenue.houseAmount == 4) house2 += 4
+            else if (tennesseeAvenue.houseAmount == 5) hotel2++
+        }
+        else if (tennesseeAvenue.owner == 3) {
+            if (tennesseeAvenue.houseAmount == 1) house3++
+            else if (tennesseeAvenue.houseAmount == 2) house3 += 2
+            else if (tennesseeAvenue.houseAmount == 3) house3 += 3
+            else if (tennesseeAvenue.houseAmount == 4) house3 += 4
+            else if (tennesseeAvenue.houseAmount == 5) hotel3++
+        }
+        else if (tennesseeAvenue.owner == 4) {
+            if (tennesseeAvenue.houseAmount == 1) house4++
+            else if (tennesseeAvenue.houseAmount == 2) house4 += 2
+            else if (tennesseeAvenue.houseAmount == 3) house4 += 3
+            else if (tennesseeAvenue.houseAmount == 4) house4 += 4
+            else if (tennesseeAvenue.houseAmount == 5) hotel4++
+        }
+        if (kentuckyAvenue.owner == 1) {
+            if (kentuckyAvenue.houseAmount == 1) house1++
+            else if (kentuckyAvenue.houseAmount == 2) house1 += 2
+            else if (kentuckyAvenue.houseAmount == 3) house1 += 3
+            else if (kentuckyAvenue.houseAmount == 4) house1 += 4
+            else if (kentuckyAvenue.houseAmount == 5) hotel1++
+        }
+        else if (kentuckyAvenue.owner == 2) {
+            if (kentuckyAvenue.houseAmount == 1) house2++
+            else if (kentuckyAvenue.houseAmount == 2) house2 += 2
+            else if (kentuckyAvenue.houseAmount == 3) house2 += 3
+            else if (kentuckyAvenue.houseAmount == 4) house2 += 4
+            else if (kentuckyAvenue.houseAmount == 5) hotel2++
+        }
+        else if (kentuckyAvenue.owner == 3) {
+            if (kentuckyAvenue.houseAmount == 1) house3++
+            else if (kentuckyAvenue.houseAmount == 2) house3 += 2
+            else if (kentuckyAvenue.houseAmount == 3) house3 += 3
+            else if (kentuckyAvenue.houseAmount == 4) house3 += 4
+            else if (kentuckyAvenue.houseAmount == 5) hotel3++
+        }
+        else if (kentuckyAvenue.owner == 4) {
+            if (kentuckyAvenue.houseAmount == 1) house4++
+            else if (kentuckyAvenue.houseAmount == 2) house4 += 2
+            else if (kentuckyAvenue.houseAmount == 3) house4 += 3
+            else if (kentuckyAvenue.houseAmount == 4) house4 += 4
+            else if (kentuckyAvenue.houseAmount == 5) hotel4++
+        }
+        if (indianaAvenue.owner == 1) {
+            if (indianaAvenue.houseAmount == 1) house1++
+            else if (indianaAvenue.houseAmount == 2) house1 += 2
+            else if (indianaAvenue.houseAmount == 3) house1 += 3
+            else if (indianaAvenue.houseAmount == 4) house1 += 4
+            else if (indianaAvenue.houseAmount == 5) hotel1++
+        }
+        else if (indianaAvenue.owner == 2) {
+            if (indianaAvenue.houseAmount == 1) house2++
+            else if (indianaAvenue.houseAmount == 2) house2 += 2
+            else if (indianaAvenue.houseAmount == 3) house2 += 3
+            else if (indianaAvenue.houseAmount == 4) house2 += 4
+            else if (indianaAvenue.houseAmount == 5) hotel2++
+        }
+        else if (indianaAvenue.owner == 3) {
+            if (indianaAvenue.houseAmount == 1) house3++
+            else if (indianaAvenue.houseAmount == 2) house3 += 2
+            else if (indianaAvenue.houseAmount == 3) house3 += 3
+            else if (indianaAvenue.houseAmount == 4) house3 += 4
+            else if (indianaAvenue.houseAmount == 5) hotel3++
+        }
+        else if (indianaAvenue.owner == 4) {
+            if (indianaAvenue.houseAmount == 1) house4++
+            else if (indianaAvenue.houseAmount == 2) house4 += 2
+            else if (indianaAvenue.houseAmount == 3) house4 += 3
+            else if (indianaAvenue.houseAmount == 4) house4 += 4
+            else if (indianaAvenue.houseAmount == 5) hotel4++
+        }
+        if (illinoisAvenue.owner == 1) {
+            if (illinoisAvenue.houseAmount == 1) house1++
+            else if (illinoisAvenue.houseAmount == 2) house1 += 2
+            else if (illinoisAvenue.houseAmount == 3) house1 += 3
+            else if (illinoisAvenue.houseAmount == 4) house1 += 4
+            else if (illinoisAvenue.houseAmount == 5) hotel1++
+        }
+        else if (illinoisAvenue.owner == 2) {
+            if (illinoisAvenue.houseAmount == 1) house2++
+            else if (illinoisAvenue.houseAmount == 2) house2 += 2
+            else if (illinoisAvenue.houseAmount == 3) house2 += 3
+            else if (illinoisAvenue.houseAmount == 4) house2 += 4
+            else if (illinoisAvenue.houseAmount == 5) hotel2++
+        }
+        else if (illinoisAvenue.owner == 3) {
+            if (illinoisAvenue.houseAmount == 1) house3++
+            else if (illinoisAvenue.houseAmount == 2) house3 += 2
+            else if (illinoisAvenue.houseAmount == 3) house3 += 3
+            else if (illinoisAvenue.houseAmount == 4) house3 += 4
+            else if (illinoisAvenue.houseAmount == 5) hotel3++
+        }
+        else if (illinoisAvenue.owner == 4) {
+            if (illinoisAvenue.houseAmount == 1) house4++
+            else if (illinoisAvenue.houseAmount == 2) house4 += 2
+            else if (illinoisAvenue.houseAmount == 3) house4 += 3
+            else if (illinoisAvenue.houseAmount == 4) house4 += 4
+            else if (illinoisAvenue.houseAmount == 5) hotel4++
+        }
+        if (atlanticAvenue.owner == 1) {
+            if (atlanticAvenue.houseAmount == 1) house1++
+            else if (atlanticAvenue.houseAmount == 2) house1 += 2
+            else if (atlanticAvenue.houseAmount == 3) house1 += 3
+            else if (atlanticAvenue.houseAmount == 4) house1 += 4
+            else if (atlanticAvenue.houseAmount == 5) hotel1++
+        }
+        else if (atlanticAvenue.owner == 2) {
+            if (atlanticAvenue.houseAmount == 1) house2++
+            else if (atlanticAvenue.houseAmount == 2) house2 += 2
+            else if (atlanticAvenue.houseAmount == 3) house2 += 3
+            else if (atlanticAvenue.houseAmount == 4) house2 += 4
+            else if (atlanticAvenue.houseAmount == 5) hotel2++
+        }
+        else if (atlanticAvenue.owner == 3) {
+            if (atlanticAvenue.houseAmount == 1) house3++
+            else if (atlanticAvenue.houseAmount == 2) house3 += 2
+            else if (atlanticAvenue.houseAmount == 3) house3 += 3
+            else if (atlanticAvenue.houseAmount == 4) house3 += 4
+            else if (atlanticAvenue.houseAmount == 5) hotel3++
+        }
+        else if (atlanticAvenue.owner == 4) {
+            if (atlanticAvenue.houseAmount == 1) house4++
+            else if (atlanticAvenue.houseAmount == 2) house4 += 2
+            else if (atlanticAvenue.houseAmount == 3) house4 += 3
+            else if (atlanticAvenue.houseAmount == 4) house4 += 4
+            else if (atlanticAvenue.houseAmount == 5) hotel4++
+        }
+        if (ventnorAvenue.owner == 1) {
+            if (ventnorAvenue.house == 1) house1++
+            else if (ventnorAvenue.house == 2) house1 += 2
+            else if (ventnorAvenue.house == 3) house1 += 3
+            else if (ventnorAvenue.house == 4) house1 += 4
+            else if (ventnorAvenue.house == 5) hotel1++
+        }
+        else if (ventnorAvenue.owner == 2) {
+            if (ventnorAvenue.house == 1) house2++
+            else if (ventnorAvenue.house == 2) house2 += 2
+            else if (ventnorAvenue.house == 3) house2 += 3
+            else if (ventnorAvenue.house == 4) house2 += 4
+            else if (ventnorAvenue.house == 5) hotel2++
+        }
+        else if (ventnorAvenue.owner == 3) {
+            if (ventnorAvenue.house == 1) house3++
+            else if (ventnorAvenue.house == 2) house3 += 2
+            else if (ventnorAvenue.house == 3) house3 += 3
+            else if (ventnorAvenue.house == 4) house3 += 4
+            else if (ventnorAvenue.house == 5) hotel3++
+        }
+        else if (ventnorAvenue.owner == 4) {
+            if (ventnorAvenue.house == 1) house4++
+            else if (ventnorAvenue.house == 2) house4 += 2
+            else if (ventnorAvenue.house == 3) house4 += 3
+            else if (ventnorAvenue.house == 4) house4 += 4
+            else if (ventnorAvenue.house == 5) hotel4++
+        }
+        if (marvinGardens.owner == 1) {
+            if (marvinGardens.houseAmount == 1) house1++
+            else if (marvinGardens.houseAmount == 2) house1 += 2
+            else if (marvinGardens.houseAmount == 3) house1 += 3
+            else if (marvinGardens.houseAmount == 4) house1 += 4
+            else if (marvinGardens.houseAmount == 5) hotel1++
+        }
+        else if (marvinGardens.owner == 2) {
+            if (marvinGardens.houseAmount == 1) house2++
+            else if (marvinGardens.houseAmount == 2) house2 += 2
+            else if (marvinGardens.houseAmount == 3) house2 += 3
+            else if (marvinGardens.houseAmount == 4) house2 += 4
+            else if (marvinGardens.houseAmount == 5) hotel2++
+        }
+        else if (marvinGardens.owner == 3) {
+            if (marvinGardens.houseAmount == 1) house3++
+            else if (marvinGardens.houseAmount == 2) house3 += 2
+            else if (marvinGardens.houseAmount == 3) house3 += 3
+            else if (marvinGardens.houseAmount == 4) house3 += 4
+            else if (marvinGardens.houseAmount == 5) hotel3++
+        }
+        else if (marvinGardens.owner == 4) {
+            if (marvinGardens.houseAmount == 1) house4++
+            else if (marvinGardens.houseAmount == 2) house4 += 2
+            else if (marvinGardens.houseAmount == 3) house4 += 3
+            else if (marvinGardens.houseAmount == 4) house4 += 4
+            else if (marvinGardens.houseAmount == 5) hotel4++
+        }
+        if (pacificAvenue.owner == 1) {
+            if (pacificAvenue.houseAmount == 1) house1++
+            else if (pacificAvenue.houseAmount == 2) house1 += 2
+            else if (pacificAvenue.houseAmount == 3) house1 += 3
+            else if (pacificAvenue.houseAmount == 4) house1 += 4
+            else if (pacificAvenue.houseAmount == 5) hotel1++
+        }
+        else if (pacificAvenue.owner == 2) {
+            if (pacificAvenue.houseAmount == 1) house2++
+            else if (pacificAvenue.houseAmount == 2) house2 += 2
+            else if (pacificAvenue.houseAmount == 3) house2 += 3
+            else if (pacificAvenue.houseAmount == 4) house2 += 4
+            else if (pacificAvenue.houseAmount == 5) hotel2++
+        }
+        else if (pacificAvenue.owner == 3) {
+            if (pacificAvenue.houseAmount == 1) house3++
+            else if (pacificAvenue.houseAmount == 2) house3 += 2
+            else if (pacificAvenue.houseAmount == 3) house3 += 3
+            else if (pacificAvenue.houseAmount == 4) house3 += 4
+            else if (pacificAvenue.houseAmount == 5) hotel3++
+        }
+        else if (pacificAvenue.owner == 4) {
+            if (pacificAvenue.houseAmount == 1) house4++
+            else if (pacificAvenue.houseAmount == 2) house4 += 2
+            else if (pacificAvenue.houseAmount == 3) house4 += 3
+            else if (pacificAvenue.houseAmount == 4) house4 += 4
+            else if (pacificAvenue.houseAmount == 5) hotel4++
+        }
+        if (northCarolinaAvenue.owner == 1) {
+            if (northCarolinaAvenue.houseAmount == 1) house1++
+            else if (northCarolinaAvenue.houseAmount == 2) house1 += 2
+            else if (northCarolinaAvenue.houseAmount == 3) house1 += 3
+            else if (northCarolinaAvenue.houseAmount == 4) house1 += 4
+            else if (northCarolinaAvenue.houseAmount == 5) hotel1++
+        }
+        else if (northCarolinaAvenue.owner == 2) {
+            if (northCarolinaAvenue.houseAmount == 1) house2++
+            else if (northCarolinaAvenue.houseAmount == 2) house2 += 2
+            else if (northCarolinaAvenue.houseAmount == 3) house2 += 3
+            else if (northCarolinaAvenue.houseAmount == 4) house2 += 4
+            else if (northCarolinaAvenue.houseAmount == 5) hotel2++
+        }
+        else if (northCarolinaAvenue.owner == 3) {
+            if (northCarolinaAvenue.houseAmount == 1) house3++
+            else if (northCarolinaAvenue.houseAmount == 2) house3 += 2
+            else if (northCarolinaAvenue.houseAmount == 3) house3 += 3
+            else if (northCarolinaAvenue.houseAmount == 4) house3 += 4
+            else if (northCarolinaAvenue.houseAmount == 5) hotel3++
+        }
+        else if (northCarolinaAvenue.owner == 4) {
+            if (northCarolinaAvenue.houseAmount == 1) house4++
+            else if (northCarolinaAvenue.houseAmount == 2) house4 += 2
+            else if (northCarolinaAvenue.houseAmount == 3) house4 += 3
+            else if (northCarolinaAvenue.houseAmount == 4) house4 += 4
+            else if (northCarolinaAvenue.houseAmount == 5) hotel4++
+        }
+        if (pennsylvaniaAvenue.owner == 1) {
+            if (pennsylvaniaAvenue.houseAmount == 1) house1++
+            else if (pennsylvaniaAvenue.houseAmount == 2) house1 += 2
+            else if (pennsylvaniaAvenue.houseAmount == 3) house1 += 3
+            else if (pennsylvaniaAvenue.houseAmount == 4) house1 += 4
+            else if (pennsylvaniaAvenue.houseAmount == 5) hotel1++
+        }
+        else if (pennsylvaniaAvenue.owner == 2) {
+            if (pennsylvaniaAvenue.houseAmount == 1) house2++
+            else if (pennsylvaniaAvenue.houseAmount == 2) house2 += 2
+            else if (pennsylvaniaAvenue.houseAmount == 3) house2 += 3
+            else if (pennsylvaniaAvenue.houseAmount == 4) house2 += 4
+            else if (pennsylvaniaAvenue.houseAmount == 5) hotel2++
+        }
+        else if (pennsylvaniaAvenue.owner == 3) {
+            if (pennsylvaniaAvenue.houseAmount == 1) house3++
+            else if (pennsylvaniaAvenue.houseAmount == 2) house3 += 2
+            else if (pennsylvaniaAvenue.houseAmount == 3) house3 += 3
+            else if (pennsylvaniaAvenue.houseAmount == 4) house3 += 4
+            else if (pennsylvaniaAvenue.houseAmount == 5) hotel3++
+        }
+        else if (pennsylvaniaAvenue.owner == 4) {
+            if (pennsylvaniaAvenue.houseAmount == 1) house4++
+            else if (pennsylvaniaAvenue.houseAmount == 2) house4 += 2
+            else if (pennsylvaniaAvenue.houseAmount == 3) house4 += 3
+            else if (pennsylvaniaAvenue.houseAmount == 4) house4 += 4
+            else if (pennsylvaniaAvenue.houseAmount == 5) hotel4++
+        }
+        if (parkPlace.owner == 1) {
+            if (parkPlace.houseAmount == 1) house1++
+            else if (parkPlace.houseAmount == 2) house1 += 2
+            else if (parkPlace.houseAmount == 3) house1 += 3
+            else if (parkPlace.houseAmount == 4) house1 += 4
+            else if (parkPlace.houseAmount == 5) hotel1++
+        }
+        else if (parkPlace.owner == 2) {
+            if (parkPlace.houseAmount == 1) house2++
+            else if (parkPlace.houseAmount == 2) house2 += 2
+            else if (parkPlace.houseAmount == 3) house2 += 3
+            else if (parkPlace.houseAmount == 4) house2 += 4
+            else if (parkPlace.houseAmount == 5) hotel2++
+        }
+        else if (parkPlace.owner == 3) {
+            if (parkPlace.houseAmount == 1) house3++
+            else if (parkPlace.houseAmount == 2) house3 += 2
+            else if (parkPlace.houseAmount == 3) house3 += 3
+            else if (parkPlace.houseAmount == 4) house3 += 4
+            else if (parkPlace.houseAmount == 5) hotel3++
+        }
+        else if (parkPlace.owner == 4) {
+            if (parkPlace.houseAmount == 1) house4++
+            else if (parkPlace.houseAmount == 2) house4 += 2
+            else if (parkPlace.houseAmount == 3) house4 += 3
+            else if (parkPlace.houseAmount == 4) house4 += 4
+            else if (parkPlace.houseAmount == 5) hotel4++
+        }
+        if (boardwalk.owner == 1) {
+            if (boardwalk.houseAmount == 1) house1++
+            else if (boardwalk.houseAmount == 2) house1 += 2
+            else if (boardwalk.houseAmount == 3) house1 += 3
+            else if (boardwalk.houseAmount == 4) house1 += 4
+            else if (boardwalk.houseAmount == 5) hotel1++
+        }
+        else if (boardwalk.owner == 2) {
+            if (boardwalk.houseAmount == 1) house2++
+            else if (boardwalk.houseAmount == 2) house2 += 2
+            else if (boardwalk.houseAmount == 3) house2 += 3
+            else if (boardwalk.houseAmount == 4) house2 += 4
+            else if (boardwalk.houseAmount == 5) hotel2++
+        }
+        else if (boardwalk.owner == 3) {
+            if (boardwalk.houseAmount == 1) house3++
+            else if (boardwalk.houseAmount == 2) house3 += 2
+            else if (boardwalk.houseAmount == 3) house3 += 3
+            else if (boardwalk.houseAmount == 4) house3 += 4
+            else if (boardwalk.houseAmount == 5) hotel3++
+        }
+        else if (boardwalk.owner == 4) {
+            if (boardwalk.houseAmount == 1) house4++
+            else if (boardwalk.houseAmount == 2) house4 += 2
+            else if (boardwalk.houseAmount == 3) house4 += 3
+            else if (boardwalk.houseAmount == 4) house4 += 4
+            else if (boardwalk.houseAmount == 5) hotel4++
+        }
+    }
     function ccCardDraw() {
         var card = Math.floor(Math.random() * 16)
         if (card == 0) {
@@ -1221,17 +1797,22 @@ start.onclick = function () {
         }
         else if (card == 13) {
             document.getElementById("card").innerHTML = "You are assessed for street repairs. 40 per house. 115 per hotel"
+            houseCheck()
             if (turn1) {
-
+                cash1 -= house1 * 40
+                cash1 -= hotel1 * 115
             }
             else if (turn2) {
-
+                cash2 -= house2 * 40
+                cash2 -= hotel2 * 115
             }
             else if (turn3) {
-
+                cash3 -= house3 * 40
+                cash3 -= hotel3 * 115
             }
             else if (turn4) {
-
+                cash4 -= house4 * 40
+                cash4 -= hotel4 * 115
             }
         }
         else if (card == 14) {
@@ -3203,24 +3784,29 @@ start.onclick = function () {
                 position3 = 10
                 inJail3 = 3
             }
-            else if (turn4){
+            else if (turn4) {
                 position4 = 10
                 inJail4 = 3
             }
         }
         else if (card == 11) {
-            document.getElementById("card").innerHTML = "Make general repairs on all property. For each house pay 25. For each hotel pay 1--"
-            if (turn1){
-
+            document.getElementById("card").innerHTML = "Make general repairs on all property. For each house pay 25. For each hotel pay 100"
+            houseCheck()
+            if (turn1) {
+                cash1 -= house1 * 25
+                cash1 -= hotel1 * 100
             }
-            else if (turn2){
-
+            else if (turn2) {
+                cash2 -= house2 * 25
+                cash2 -= hotel2 * 100
             }
-            else if (turn3){
-
+            else if (turn3) {
+                cash3 -= house3 * 25
+                cash3 -= hotel3 * 100
             }
-            else if (turn4){
-
+            else if (turn4) {
+                cash4 -= house4 * 25
+                cash5 -= hotel4 * 100
             }
         }
         else if (card == 12) {
@@ -3475,69 +4061,33 @@ start.onclick = function () {
                                     document.getElementById("owner").innerHTML = " 2"
                                     if (mediteraneanAvenue.houseAmount == 0) {
                                         document.getElementById("payment").innerHTML = " 2"
-                                        if (cash1 - 2 >= 0) {
-                                            cash1 -= 2
-                                            cash2 += 2
-                                        } else {
-                                            cash2 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 2
+                                        cash2 += 2
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 1) {
                                         document.getElementById("payment").innerHTML = " 10"
-                                        if (cash1 - 10 >= 0) {
-                                            cash1 -= 10
-                                            cash2 += 10
-                                        } else {
-                                            cash2 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 10
+                                        cash2 += 10
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 2) {
                                         document.getElementById("payment").innerHTML = " 30"
-                                        if (cash1 - 30 >= 0) {
-                                            cash1 -= 30
-                                            cash2 += 30
-                                        } else {
-                                            cash2 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 30
+                                        cash2 += 30
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 3) {
                                         document.getElementById("payment").innerHTML = " 90"
-                                        if (cash1 - 90 >= 0) {
-                                            cash1 -= 90
-                                            cash2 += 90
-                                        } else {
-                                            cash2 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 90
+                                        cash2 += 90
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 4) {
                                         document.getElementById("payment").innerHTML = " 160"
-                                        if (cash1 - 160 >= 0) {
-                                            cash1 -= 160
-                                            cash2 += 160
-                                        } else {
-                                            cash2 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 160
+                                        cash2 += 160
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 5) {
                                         document.getElementById("payment").innerHTML = " 250"
-                                        if (cash1 - 250 >= 0) {
-                                            cash1 -= 250
-                                            cash2 += 250
-                                        } else {
-                                            cash2 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 250
+                                        cash2 += 250
                                     }
                                 }
                                 else if (mediteraneanAvenue.owner == 3) {
@@ -3545,69 +4095,33 @@ start.onclick = function () {
                                     document.getElementById("owner").innerHTML = " 3"
                                     if (mediteraneanAvenue.houseAmount == 0) {
                                         document.getElementById("payment").innerHTML = " 2"
-                                        if (cash1 - 2 >= 0) {
-                                            cash1 -= 2
-                                            cash3 += 2
-                                        } else {
-                                            cash3 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 2
+                                        cash3 += 2
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 1) {
                                         document.getElementById("payment").innerHTML = " 10"
-                                        if (cash1 - 10 >= 0) {
-                                            cash1 -= 10
-                                            cash3 += 10
-                                        } else {
-                                            cash3 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 10
+                                        cash3 += 10
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 2) {
                                         document.getElementById("payment").innerHTML = " 30"
-                                        if (cash1 - 30 >= 0) {
-                                            cash1 -= 30
-                                            cash3 += 30
-                                        } else {
-                                            cash3 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 30
+                                        cash3 += 30
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 3) {
                                         document.getElementById("payment").innerHTML = " 90"
-                                        if (cash1 - 90 >= 0) {
-                                            cash1 -= 90
-                                            cash3 += 90
-                                        } else {
-                                            cash3 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 90
+                                        cash3 += 90
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 4) {
                                         document.getElementById("payment").innerHTML = " 160"
-                                        if (cash1 - 160 >= 0) {
-                                            cash1 -= 160
-                                            cash3 += 160
-                                        } else {
-                                            cash3 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 160
+                                        cash3 += 160
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 5) {
                                         document.getElementById("payment").innerHTML = " 250"
-                                        if (cash1 - 250 >= 0) {
-                                            cash1 -= 250
-                                            cash3 += 250
-                                        } else {
-                                            cash3 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 250
+                                        cash3 += 250
                                     }
                                 }
                                 else if (mediteraneanAvenue.owner == 4) {
@@ -3615,69 +4129,33 @@ start.onclick = function () {
                                     document.getElementById("owner").innerHTML = " 4"
                                     if (mediteraneanAvenue.houseAmount == 0) {
                                         document.getElementById("payment").innerHTML = " 2"
-                                        if (cash1 - 2 >= 0) {
-                                            cash1 -= 2
-                                            cash4 += 2
-                                        } else {
-                                            cash4 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 2
+                                        cash4 += 2
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 1) {
                                         document.getElementById("payment").innerHTML = " 10"
-                                        if (cash1 - 10 >= 0) {
-                                            cash1 -= 10
-                                            cash4 += 10
-                                        } else {
-                                            cash4 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 10
+                                        cash4 += 10
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 2) {
                                         document.getElementById("payment").innerHTML = " 30"
-                                        if (cash1 - 30 >= 0) {
-                                            cash1 -= 30
-                                            cash4 += 30
-                                        } else {
-                                            cash4 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 30
+                                        cash4 += 30
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 3) {
                                         document.getElementById("payment").innerHTML = " 90"
-                                        if (cash1 - 90 >= 0) {
-                                            cash1 -= 90
-                                            cash4 += 90
-                                        } else {
-                                            cash4 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 90
+                                        cash4 += 90
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 4) {
                                         document.getElementById("payment").innerHTML = " 160"
-                                        if (cash1 - 160 >= 0) {
-                                            cash1 -= 160
-                                            cash4 += 160
-                                        } else {
-                                            cash4 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 160
+                                        cash4 += 160
                                     }
                                     else if (mediteraneanAvenue.houseAmount == 5) {
                                         document.getElementById("payment").innerHTML = " 250"
-                                        if (cash1 - 250 >= 0) {
-                                            cash1 -= 250
-                                            cash4 += 250
-                                        } else {
-                                            cash4 += cash1
-                                            cash1 = 0
-                                            bankrupt1 = true
-                                        }
+                                        cash1 -= 250
+                                        cash4 += 250
                                     }
                                 }
                             }
@@ -3685,13 +4163,79 @@ start.onclick = function () {
                                 ccCardDraw()
                             }
                             if (position1 == 3) {
-
+                                if (balticAvenue.bought == false) {
+                                    document.getElementById("place").innerHTML = " Baltic Avenue "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + balticAvenue.price
+                                }
+                                else if (balticAvenue.owner == 1 && balticAvenue.houseAmount < 5) {
+                                    document.getElementById("house").style.display = "block"
+                                    document.getElementById("houseprice").innerHTML = " " + 50
+                                }
                             }
                             if (position1 == 4) {
                                 cash1 -= incomeTax.taxAmount
                             }
                             if (position1 == 5) {
-
+                                if (readingRailroad.bought == false) {
+                                    document.getElementById("place").innerHTML = " Reading Railroad "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + readingRailroad.price
+                                }
+                                if (readingRailroad.owner == 2) {
+                                    if (railroadsOwned2 == 1) {
+                                        cash1 -= 25
+                                        cash2 += 25
+                                    }
+                                    else if (railroadsOwned2 == 2) {
+                                        cash1 -= 50
+                                        cash2 += 50
+                                    }
+                                    else if (railroadsOwned2 == 3) {
+                                        cash1 -= 100
+                                        cash2 += 100
+                                    }
+                                    else if (railroadsOwned2 == 4) {
+                                        cash1 -= 200
+                                        cash2 += 200
+                                    }
+                                }
+                                else if (readingRailroad.owner == 3) {
+                                    if (railroadsOwned3 == 1) {
+                                        cash1 -= 25
+                                        cash3 += 25
+                                    }
+                                    else if (railroadsOwned3 == 2) {
+                                        cash1 -= 50
+                                        cash3 += 50
+                                    }
+                                    else if (railroadsOwned3 == 3) {
+                                        cash1 -= 100
+                                        cash3 += 100
+                                    }
+                                    else if (railroadsOwned3 == 4) {
+                                        cash1 -= 200
+                                        cash3 += 200
+                                    }
+                                }
+                                else if (readingRailroad.owner == 4) {
+                                    if (railroadsOwned4 == 1) {
+                                        cash1 -= 25
+                                        cash4 += 25
+                                    }
+                                    else if (railroadsOwned4 == 2) {
+                                        cash1 -= 50
+                                        cash4 += 50
+                                    }
+                                    else if (railroadsOwned4 == 3) {
+                                        cash1 -= 100
+                                        cash4 += 100
+                                    }
+                                    else if (railroadsOwned4 == 4) {
+                                        cash1 -= 200
+                                        cash4 += 200
+                                    }
+                                }
                             }
                             if (position1 == 6) {
 
@@ -3706,7 +4250,7 @@ start.onclick = function () {
 
                             }
                             if (position1 == 10) {
-                                
+
                             }
                             if (position1 == 11) {
 
@@ -3721,7 +4265,65 @@ start.onclick = function () {
 
                             }
                             if (position1 == 15) {
-
+                                if (pennsylvaniaAvenue.bought == false) {
+                                    document.getElementById("place").innerHTML = " Pennsylvania Railroad "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + pennsylvaniaRailroad.price
+                                }
+                                if (pennsylvaniaRailroad.owner == 2) {
+                                    if (railroadsOwned2 == 1) {
+                                        cash1 -= 25
+                                        cash2 += 25
+                                    }
+                                    else if (railroadsOwned2 == 2) {
+                                        cash1 -= 50
+                                        cash2 += 50
+                                    }
+                                    else if (railroadsOwned2 == 3) {
+                                        cash1 -= 100
+                                        cash2 += 100
+                                    }
+                                    else if (railroadsOwned2 == 4) {
+                                        cash1 -= 200
+                                        cash2 += 200
+                                    }
+                                }
+                                else if (pennsylvaniaRailroad.owner == 3) {
+                                    if (railroadsOwned3 == 1) {
+                                        cash1 -= 25
+                                        cash3 += 25
+                                    }
+                                    else if (railroadsOwned3 == 2) {
+                                        cash1 -= 50
+                                        cash3 += 50
+                                    }
+                                    else if (railroadsOwned3 == 3) {
+                                        cash1 -= 100
+                                        cash3 += 100
+                                    }
+                                    else if (railroadsOwned3 == 4) {
+                                        cash1 -= 200
+                                        cash3 += 200
+                                    }
+                                }
+                                else if (pennsylvaniaRailroad.owner == 4) {
+                                    if (railroadsOwned4 == 1) {
+                                        cash1 -= 25
+                                        cash4 += 25
+                                    }
+                                    else if (railroadsOwned4 == 2) {
+                                        cash1 -= 50
+                                        cash4 += 50
+                                    }
+                                    else if (railroadsOwned4 == 3) {
+                                        cash1 -= 100
+                                        cash4 += 100
+                                    }
+                                    else if (railroadsOwned4 == 4) {
+                                        cash1 -= 200
+                                        cash4 += 200
+                                    }
+                                }
                             }
                             if (position1 == 16) {
 
@@ -3751,7 +4353,65 @@ start.onclick = function () {
 
                             }
                             if (position1 == 25) {
-
+                                if (bAndORailroad.bought == false) {
+                                    document.getElementById("place").innerHTML = " B & O Railroad "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + bAndORailroad.price
+                                }
+                                if (bAndORailroad.owner == 2) {
+                                    if (railroadsOwned2 == 1) {
+                                        cash1 -= 25
+                                        cash2 += 25
+                                    }
+                                    else if (railroadsOwned2 == 2) {
+                                        cash1 -= 50
+                                        cash2 += 50
+                                    }
+                                    else if (railroadsOwned2 == 3) {
+                                        cash1 -= 100
+                                        cash2 += 100
+                                    }
+                                    else if (railroadsOwned2 == 4) {
+                                        cash1 -= 200
+                                        cash2 += 200
+                                    }
+                                }
+                                else if (bAndORailroad.owner == 3) {
+                                    if (railroadsOwned3 == 1) {
+                                        cash1 -= 25
+                                        cash3 += 25
+                                    }
+                                    else if (railroadsOwned3 == 2) {
+                                        cash1 -= 50
+                                        cash3 += 50
+                                    }
+                                    else if (railroadsOwned3 == 3) {
+                                        cash1 -= 100
+                                        cash3 += 100
+                                    }
+                                    else if (railroadsOwned3 == 4) {
+                                        cash1 -= 200
+                                        cash3 += 200
+                                    }
+                                }
+                                else if (bAndORailroad.owner == 4) {
+                                    if (railroadsOwned4 == 1) {
+                                        cash1 -= 25
+                                        cash4 += 25
+                                    }
+                                    else if (railroadsOwned4 == 2) {
+                                        cash1 -= 50
+                                        cash4 += 50
+                                    }
+                                    else if (railroadsOwned4 == 3) {
+                                        cash1 -= 100
+                                        cash4 += 100
+                                    }
+                                    else if (railroadsOwned4 == 4) {
+                                        cash1 -= 200
+                                        cash4 += 200
+                                    }
+                                }
                             }
                             if (position1 == 26) {
 
@@ -3782,7 +4442,65 @@ start.onclick = function () {
 
                             }
                             if (position1 == 35) {
-
+                                if (shortLine.bought == false) {
+                                    document.getElementById("place").innerHTML = " Short Line "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + shortLine.price
+                                }
+                                if (shortLine.owner == 2) {
+                                    if (railroadsOwned2 == 1) {
+                                        cash1 -= 25
+                                        cash2 += 25
+                                    }
+                                    else if (railroadsOwned2 == 2) {
+                                        cash1 -= 50
+                                        cash2 += 50
+                                    }
+                                    else if (railroadsOwned2 == 3) {
+                                        cash1 -= 100
+                                        cash2 += 100
+                                    }
+                                    else if (railroadsOwned2 == 4) {
+                                        cash1 -= 200
+                                        cash2 += 200
+                                    }
+                                }
+                                else if (shortLine.owner == 3) {
+                                    if (railroadsOwned3 == 1) {
+                                        cash1 -= 25
+                                        cash3 += 25
+                                    }
+                                    else if (railroadsOwned3 == 2) {
+                                        cash1 -= 50
+                                        cash3 += 50
+                                    }
+                                    else if (railroadsOwned3 == 3) {
+                                        cash1 -= 100
+                                        cash3 += 100
+                                    }
+                                    else if (railroadsOwned3 == 4) {
+                                        cash1 -= 200
+                                        cash3 += 200
+                                    }
+                                }
+                                else if (shortLine.owner == 4) {
+                                    if (railroadsOwned4 == 1) {
+                                        cash1 -= 25
+                                        cash4 += 25
+                                    }
+                                    else if (railroadsOwned4 == 2) {
+                                        cash1 -= 50
+                                        cash4 += 50
+                                    }
+                                    else if (railroadsOwned4 == 3) {
+                                        cash1 -= 100
+                                        cash4 += 100
+                                    }
+                                    else if (railroadsOwned4 == 4) {
+                                        cash1 -= 200
+                                        cash4 += 200
+                                    }
+                                }
                             }
                             if (position1 == 36) {
                                 chanceCardDraw()
