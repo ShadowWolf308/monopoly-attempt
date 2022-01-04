@@ -1065,15 +1065,519 @@ start.onclick = function () {
     function bankruptCheck() {
         if (cash1 < 0) {
             bankrupt1 = true
+            if (mediteraneanAvenue.owner == 1) {
+                mediteraneanAvenue.owner = 0
+                mediteraneanAvenue.bought = false
+                mediteraneanAvenue.houseAmount = 0
+            }
+            if (balticAvenue.owner == 1) {
+                balticAvenue.owner = 0
+                balticAvenue.bought = false
+                balticAvenue.houseAmount = 0
+            }
+            if (orientalAvenue.owner == 1) {
+                orientalAvenue.owner = 0
+                orientalAvenue.bought = false
+                orientalAvenue.houseAmount = 0
+            }
+            if (vermontAvenue.owner == 1) {
+                vermontAvenue.owner = 0
+                vermontAvenue.bought = false
+                vermontAvenue.houseAmount = 0
+            }
+            if (connecticutAvenue.owner == 1) {
+                connecticutAvenue.owner = 0
+                connecticutAvenue.bought = false
+                connecticutAvenue.houseAmount = 0
+            }
+            if (stCharlesPlace.owner == 1) {
+                stCharlesPlace.owner = 0
+                stCharlesPlace.bought = false
+                stCharlesPlace.houseAmount = 0
+            }
+            if (statesAvenue.owner == 1) {
+                statesAvenue.owner = 0
+                statesAvenue.bought = false
+                statesAvenue.houseAmount = 0
+            }
+            if (virginiaAvenue.owner == 1) {
+                virginiaAvenue.owner = 0
+                virginiaAvenue.bought = false
+                virginiaAvenue.houseAmount = 0
+            }
+            if (stJamesPlace.owner == 1) {
+                stJamesPlace.owner = 0
+                stJamesPlace.bought = false
+                stJamesPlace.houseAmount = 0
+            }
+            if (tennesseeAvenue.owner == 1) {
+                tennesseeAvenue.owner = 0
+                tennesseeAvenue.bought = false
+                tennesseeAvenue.houseAmount = 0
+            }
+            if (newYorkAvenue.owner == 1) {
+                newYorkAvenue.owner = 0
+                newYorkAvenue.bought = false
+                newYorkAvenue.houseAmount = 0
+            }
+            if (kentuckyAvenue.owner == 1) {
+                kentuckyAvenue.owner = 0
+                kentuckyAvenue.bought = false
+                kentuckyAvenue.houseAmount = 0
+            }
+            if (indianaAvenue.owner == 1) {
+                indianaAvenue.owner = 0
+                indianaAvenue.bought = false
+                indianaAvenue.houseAmount = 0
+            }
+            if (illinoisAvenue.owner == 1) {
+                illinoisAvenue.owner = 0
+                illinoisAvenue.bought = false
+                illinoisAvenue.houseAmount = 0
+            }
+            if (atlanticAvenue.owner == 1) {
+                atlanticAvenue.owner = 0
+                atlanticAvenue.bought = false
+                atlanticAvenue.houseAmount = 0
+            }
+            if (ventnorAvenue.owner == 1) {
+                ventnorAvenue.owner = 0
+                ventnorAvenue.bought = false
+                ventnorAvenue.houseAmount = 0
+            }
+            if (marvinGardens.owner == 1) {
+                marvinGardens.owner = 0
+                marvinGardens.bought = false
+                marvinGardens.houseAmount = 0
+            }
+            if (pacificAvenue.owner == 1) {
+                pacificAvenue.owner = 0
+                pacificAvenue.bought = false
+                pacificAvenue.houseAmount = 0
+            }
+            if (northCarolinaAvenue.owner == 1) {
+                northCarolinaAvenue.owner = 0
+                northCarolinaAvenue.bought = false
+                northCarolinaAvenue.houseAmount = 0
+            }
+            if (pennsylvaniaAvenue.owner == 1) {
+                pennsylvaniaAvenue.owner = 0
+                pennsylvaniaAvenue.bought = false
+                pennsylvaniaAvenue.houseAmount = 0
+            }
+            if (parkPlace.owner == 1) {
+                parkPlace.owner = 0
+                parkPlace.bought = false
+                parkPlace.houseAmount = 0
+            }
+            if (boardwalk.owner == 1) {
+                boardwalk.owner = 0
+                boardwalk.bought = false
+                boardwalk.houseAmount = 0
+            }
+            if (readingRailroad.owner == 1) {
+                readingRailroad.owner = 0
+                readingRailroad.bought = false
+            }
+            if (pennsylvaniaRailroad.owner == 1) {
+                pennsylvaniaRailroad.owner = 0
+                pennsylvaniaRailroad.bought = false
+            }
+            if (bAndORailroad.owner == 1) {
+                bAndORailroad.owner = 0
+                bAndORailroad.bought = false
+            }
+            if (shortLine.owner == 1) {
+                shortLine.owner = 0
+                shortLine.bought = false
+            }
         }
         if (cash2 < 0) {
             bankrupt2 = true
+            if (mediteraneanAvenue.owner == 2) {
+                mediteraneanAvenue.owner = 0
+                mediteraneanAvenue.bought = false
+                mediteraneanAvenue.houseAmount = 0
+            }
+            if (balticAvenue.owner == 2) {
+                balticAvenue.owner = 0
+                balticAvenue.bought = false
+                balticAvenue.houseAmount = 0
+            }
+            if (orientalAvenue.owner == 2) {
+                orientalAvenue.owner = 0
+                orientalAvenue.bought = false
+                orientalAvenue.houseAmount = 0
+            }
+            if (vermontAvenue.owner == 2) {
+                vermontAvenue.owner = 0
+                vermontAvenue.bought = false
+                vermontAvenue.houseAmount = 0
+            }
+            if (connecticutAvenue.owner == 2) {
+                connecticutAvenue.owner = 0
+                connecticutAvenue.bought = false
+                connecticutAvenue.houseAmount = 0
+            }
+            if (stCharlesPlace.owner == 2) {
+                stCharlesPlace.owner = 0
+                stCharlesPlace.bought = false
+                stCharlesPlace.houseAmount = 0
+            }
+            if (statesAvenue.owner == 2) {
+                statesAvenue.owner = 0
+                statesAvenue.bought = false
+                statesAvenue.houseAmount = 0
+            }
+            if (virginiaAvenue.owner == 2) {
+                virginiaAvenue.owner = 0
+                virginiaAvenue.bought = false
+                virginiaAvenue.houseAmount = 0
+            }
+            if (stJamesPlace.owner == 2) {
+                stJamesPlace.owner = 0
+                stJamesPlace.bought = false
+                stJamesPlace.houseAmount = 0
+            }
+            if (tennesseeAvenue.owner == 2) {
+                tennesseeAvenue.owner = 0
+                tennesseeAvenue.bought = false
+                tennesseeAvenue.houseAmount = 0
+            }
+            if (newYorkAvenue.owner == 2) {
+                newYorkAvenue.owner = 0
+                newYorkAvenue.bought = false
+                newYorkAvenue.houseAmount = 0
+            }
+            if (kentuckyAvenue.owner == 2) {
+                kentuckyAvenue.owner = 0
+                kentuckyAvenue.bought = false
+                kentuckyAvenue.houseAmount = 0
+            }
+            if (indianaAvenue.owner == 2) {
+                indianaAvenue.owner = 0
+                indianaAvenue.bought = false
+                indianaAvenue.houseAmount = 0
+            }
+            if (illinoisAvenue.owner == 2) {
+                illinoisAvenue.owner = 0
+                illinoisAvenue.bought = false
+                illinoisAvenue.houseAmount = 0
+            }
+            if (atlanticAvenue.owner == 2) {
+                atlanticAvenue.owner = 0
+                atlanticAvenue.bought = false
+                atlanticAvenue.houseAmount = 0
+            }
+            if (ventnorAvenue.owner == 2) {
+                ventnorAvenue.owner = 0
+                ventnorAvenue.bought = false
+                ventnorAvenue.houseAmount = 0
+            }
+            if (marvinGardens.owner == 2) {
+                marvinGardens.owner = 0
+                marvinGardens.bought = false
+                marvinGardens.houseAmount = 0
+            }
+            if (pacificAvenue.owner == 2) {
+                pacificAvenue.owner = 0
+                pacificAvenue.bought = false
+                pacificAvenue.houseAmount = 0
+            }
+            if (northCarolinaAvenue.owner == 2) {
+                northCarolinaAvenue.owner = 0
+                northCarolinaAvenue.bought = false
+                northCarolinaAvenue.houseAmount = 0
+            }
+            if (pennsylvaniaAvenue.owner == 2) {
+                pennsylvaniaAvenue.owner = 0
+                pennsylvaniaAvenue.bought = false
+                pennsylvaniaAvenue.houseAmount = 0
+            }
+            if (parkPlace.owner == 2) {
+                parkPlace.owner = 0
+                parkPlace.bought = false
+                parkPlace.houseAmount = 0
+            }
+            if (boardwalk.owner == 2) {
+                boardwalk.owner = 0
+                boardwalk.bought = false
+                boardwalk.houseAmount = 0
+            }
+            if (readingRailroad.owner == 2) {
+                readingRailroad.owner = 0
+                readingRailroad.bought = false
+            }
+            if (pennsylvaniaRailroad.owner == 2) {
+                pennsylvaniaRailroad.owner = 0
+                pennsylvaniaRailroad.bought = false
+            }
+            if (bAndORailroad.owner == 2) {
+                bAndORailroad.owner = 0
+                bAndORailroad.bought = false
+            }
+            if (shortLine.owner == 2) {
+                shortLine.owner = 0
+                shortLine.bought = false
+            }
         }
         if (cash3 < 0) {
             bankrupt3 = true
+            if (mediteraneanAvenue.owner == 3) {
+                mediteraneanAvenue.owner = 0
+                mediteraneanAvenue.bought = false
+                mediteraneanAvenue.houseAmount = 0
+            }
+            if (balticAvenue.owner == 3) {
+                balticAvenue.owner = 0
+                balticAvenue.bought = false
+                balticAvenue.houseAmount = 0
+            }
+            if (orientalAvenue.owner == 3) {
+                orientalAvenue.owner = 0
+                orientalAvenue.bought = false
+                orientalAvenue.houseAmount = 0
+            }
+            if (vermontAvenue.owner == 3) {
+                vermontAvenue.owner = 0
+                vermontAvenue.bought = false
+                vermontAvenue.houseAmount = 0
+            }
+            if (connecticutAvenue.owner == 3) {
+                connecticutAvenue.owner = 0
+                connecticutAvenue.bought = false
+                connecticutAvenue.houseAmount = 0
+            }
+            if (stCharlesPlace.owner == 3) {
+                stCharlesPlace.owner = 0
+                stCharlesPlace.bought = false
+                stCharlesPlace.houseAmount = 0
+            }
+            if (statesAvenue.owner == 3) {
+                statesAvenue.owner = 0
+                statesAvenue.bought = false
+                statesAvenue.houseAmount = 0
+            }
+            if (virginiaAvenue.owner == 3) {
+                virginiaAvenue.owner = 0
+                virginiaAvenue.bought = false
+                virginiaAvenue.houseAmount = 0
+            }
+            if (stJamesPlace.owner == 3) {
+                stJamesPlace.owner = 0
+                stJamesPlace.bought = false
+                stJamesPlace.houseAmount = 0
+            }
+            if (tennesseeAvenue.owner == 3) {
+                tennesseeAvenue.owner = 0
+                tennesseeAvenue.bought = false
+                tennesseeAvenue.houseAmount = 0
+            }
+            if (newYorkAvenue.owner == 3) {
+                newYorkAvenue.owner = 0
+                newYorkAvenue.bought = false
+                newYorkAvenue.houseAmount = 0
+            }
+            if (kentuckyAvenue.owner == 3) {
+                kentuckyAvenue.owner = 0
+                kentuckyAvenue.bought = false
+                kentuckyAvenue.houseAmount = 0
+            }
+            if (indianaAvenue.owner == 3) {
+                indianaAvenue.owner = 0
+                indianaAvenue.bought = false
+                indianaAvenue.houseAmount = 0
+            }
+            if (illinoisAvenue.owner == 1) {
+                illinoisAvenue.owner = 0
+                illinoisAvenue.bought = false
+                illinoisAvenue.houseAmount = 0
+            }
+            if (atlanticAvenue.owner == 3) {
+                atlanticAvenue.owner = 0
+                atlanticAvenue.bought = false
+                atlanticAvenue.houseAmount = 0
+            }
+            if (ventnorAvenue.owner == 3) {
+                ventnorAvenue.owner = 0
+                ventnorAvenue.bought = false
+                ventnorAvenue.houseAmount = 0
+            }
+            if (marvinGardens.owner == 3) {
+                marvinGardens.owner = 0
+                marvinGardens.bought = false
+                marvinGardens.houseAmount = 0
+            }
+            if (pacificAvenue.owner == 3) {
+                pacificAvenue.owner = 0
+                pacificAvenue.bought = false
+                pacificAvenue.houseAmount = 0
+            }
+            if (northCarolinaAvenue.owner == 3) {
+                northCarolinaAvenue.owner = 0
+                northCarolinaAvenue.bought = false
+                northCarolinaAvenue.houseAmount = 0
+            }
+            if (pennsylvaniaAvenue.owner == 3) {
+                pennsylvaniaAvenue.owner = 0
+                pennsylvaniaAvenue.bought = false
+                pennsylvaniaAvenue.houseAmount = 0
+            }
+            if (parkPlace.owner == 3) {
+                parkPlace.owner = 0
+                parkPlace.bought = false
+                parkPlace.houseAmount = 0
+            }
+            if (boardwalk.owner == 3) {
+                boardwalk.owner = 0
+                boardwalk.bought = false
+                boardwalk.houseAmount = 0
+            }
+            if (readingRailroad.owner == 3) {
+                readingRailroad.owner = 0
+                readingRailroad.bought = false
+            }
+            if (pennsylvaniaRailroad.owner == 3) {
+                pennsylvaniaRailroad.owner = 0
+                pennsylvaniaRailroad.bought = false
+            }
+            if (bAndORailroad.owner == 3) {
+                bAndORailroad.owner = 0
+                bAndORailroad.bought = false
+            }
+            if (shortLine.owner == 3) {
+                shortLine.owner = 0
+                shortLine.bought = false
+            }
         }
         if (cash4 < 0) {
             bankrupt4 = true
+            if (mediteraneanAvenue.owner == 4) {
+                mediteraneanAvenue.owner = 0
+                mediteraneanAvenue.bought = false
+                mediteraneanAvenue.houseAmount = 0
+            }
+            if (balticAvenue.owner == 4) {
+                balticAvenue.owner = 0
+                balticAvenue.bought = false
+                balticAvenue.houseAmount = 0
+            }
+            if (orientalAvenue.owner == 4) {
+                orientalAvenue.owner = 0
+                orientalAvenue.bought = false
+                orientalAvenue.houseAmount = 0
+            }
+            if (vermontAvenue.owner == 4) {
+                vermontAvenue.owner = 0
+                vermontAvenue.bought = false
+                vermontAvenue.houseAmount = 0
+            }
+            if (connecticutAvenue.owner == 4) {
+                connecticutAvenue.owner = 0
+                connecticutAvenue.bought = false
+                connecticutAvenue.houseAmount = 0
+            }
+            if (stCharlesPlace.owner == 4) {
+                stCharlesPlace.owner = 0
+                stCharlesPlace.bought = false
+                stCharlesPlace.houseAmount = 0
+            }
+            if (statesAvenue.owner == 4) {
+                statesAvenue.owner = 0
+                statesAvenue.bought = false
+                statesAvenue.houseAmount = 0
+            }
+            if (virginiaAvenue.owner == 4) {
+                virginiaAvenue.owner = 0
+                virginiaAvenue.bought = false
+                virginiaAvenue.houseAmount = 0
+            }
+            if (stJamesPlace.owner == 4) {
+                stJamesPlace.owner = 0
+                stJamesPlace.bought = false
+                stJamesPlace.houseAmount = 0
+            }
+            if (tennesseeAvenue.owner == 4) {
+                tennesseeAvenue.owner = 0
+                tennesseeAvenue.bought = false
+                tennesseeAvenue.houseAmount = 0
+            }
+            if (newYorkAvenue.owner == 4) {
+                newYorkAvenue.owner = 0
+                newYorkAvenue.bought = false
+                newYorkAvenue.houseAmount = 0
+            }
+            if (kentuckyAvenue.owner == 4) {
+                kentuckyAvenue.owner = 0
+                kentuckyAvenue.bought = false
+                kentuckyAvenue.houseAmount = 0
+            }
+            if (indianaAvenue.owner == 4) {
+                indianaAvenue.owner = 0
+                indianaAvenue.bought = false
+                indianaAvenue.houseAmount = 0
+            }
+            if (illinoisAvenue.owner == 4) {
+                illinoisAvenue.owner = 0
+                illinoisAvenue.bought = false
+                illinoisAvenue.houseAmount = 0
+            }
+            if (atlanticAvenue.owner == 4) {
+                atlanticAvenue.owner = 0
+                atlanticAvenue.bought = false
+                atlanticAvenue.houseAmount = 0
+            }
+            if (ventnorAvenue.owner == 4) {
+                ventnorAvenue.owner = 0
+                ventnorAvenue.bought = false
+                ventnorAvenue.houseAmount = 0
+            }
+            if (marvinGardens.owner == 4) {
+                marvinGardens.owner = 0
+                marvinGardens.bought = false
+                marvinGardens.houseAmount = 0
+            }
+            if (pacificAvenue.owner == 4) {
+                pacificAvenue.owner = 0
+                pacificAvenue.bought = false
+                pacificAvenue.houseAmount = 0
+            }
+            if (northCarolinaAvenue.owner == 4) {
+                northCarolinaAvenue.owner = 0
+                northCarolinaAvenue.bought = false
+                northCarolinaAvenue.houseAmount = 0
+            }
+            if (pennsylvaniaAvenue.owner == 4) {
+                pennsylvaniaAvenue.owner = 0
+                pennsylvaniaAvenue.bought = false
+                pennsylvaniaAvenue.houseAmount = 0
+            }
+            if (parkPlace.owner == 4) {
+                parkPlace.owner = 0
+                parkPlace.bought = false
+                parkPlace.houseAmount = 0
+            }
+            if (boardwalk.owner == 4) {
+                boardwalk.owner = 0
+                boardwalk.bought = false
+                boardwalk.houseAmount = 0
+            }
+            if (readingRailroad.owner == 4) {
+                readingRailroad.owner = 0
+                readingRailroad.bought = false
+            }
+            if (pennsylvaniaRailroad.owner == 4) {
+                pennsylvaniaRailroad.owner = 0
+                pennsylvaniaRailroad.bought = false
+            }
+            if (bAndORailroad.owner == 4) {
+                bAndORailroad.owner = 0
+                bAndORailroad.bought = false
+            }
+            if (shortLine.owner == 4) {
+                shortLine.owner = 0
+                shortLine.bought = false
+            }
         }
     }
     function houseCheck() {
@@ -1640,6 +2144,7 @@ start.onclick = function () {
     }
     function ccCardDraw() {
         var card = Math.floor(Math.random() * 16)
+        if (card < 0 || card > 15) card = Math.floor(Math.random() * 16)
         if (card == 0) {
             document.getElementById("card").innerHTML = "Advance to Go (collect 200)"
             if (turn1) cash1 += go.amount
@@ -1832,6 +2337,7 @@ start.onclick = function () {
     }
     function chanceCardDraw() {
         var card = Math.floor(Math.random() * 16)
+        if (card < 0 || card > 15) card = Math.floor(Math.random() * 16)
         if (card == 0) {
             document.getElementById("card").innerHTML = "Advance to Go (collect 200)"
             if (turn1) cash1 += go.amount
@@ -4172,6 +4678,108 @@ start.onclick = function () {
                                     document.getElementById("house").style.display = "block"
                                     document.getElementById("houseprice").innerHTML = " " + 50
                                 }
+                                else if (balticAvenue.owner == 2) {
+                                    document.getElementById("pay").style.display = "block"
+                                    document.getElementById("owner").innerHTML = " 2"
+                                    if (balticAvenue.houseAmount == 0) {
+                                        document.getElementById("payment").innerHTML = " 4"
+                                        cash1 -= 4
+                                        cash2 += 4
+                                    }
+                                    else if (balticAvenue.houseAmount == 1) {
+                                        document.getElementById("payment").innerHTML = " 20"
+                                        cash1 -= 20
+                                        cash2 += 20
+                                    }
+                                    else if (balticAvenue.houseAmount == 2) {
+                                        document.getElementById("payment").innerHTML = " 60"
+                                        cash1 -= 60
+                                        cash2 += 60
+                                    }
+                                    else if (balticAvenue.houseAmount == 3) {
+                                        document.getElementById("payment").innerHTML = " 180"
+                                        cash1 -= 180
+                                        cash2 += 180
+                                    }
+                                    else if (balticAvenue.houseAmount == 4) {
+                                        document.getElementById("payment").innerHTML = " 320"
+                                        cash1 -= 320
+                                        cash2 += 320
+                                    }
+                                    else if (balticAvenue.houseAmount == 5) {
+                                        document.getElementById("payment").innerHTML = " 450"
+                                        cash1 -= 450
+                                        cash2 += 450
+                                    }
+                                }
+                                else if (balticAvenue.owner == 3) {
+                                    document.getElementById("pay").style.display = "block"
+                                    document.getElementById("owner").innerHTML = " 3"
+                                    if (balticAvenue.houseAmount == 0) {
+                                        document.getElementById("payment").innerHTML = " 4"
+                                        cash1 -= 4
+                                        cash3 += 4
+                                    }
+                                    else if (balticAvenue.houseAmount == 1) {
+                                        document.getElementById("payment").innerHTML = " 20"
+                                        cash1 -= 20
+                                        cash3 += 20
+                                    }
+                                    else if (balticAvenue.houseAmount == 2) {
+                                        document.getElementById("payment").innerHTML = " 60"
+                                        cash1 -= 60
+                                        cash3 += 60
+                                    }
+                                    else if (balticAvenue.houseAmount == 3) {
+                                        document.getElementById("payment").innerHTML = " 180"
+                                        cash1 -= 180
+                                        cash3 += 180
+                                    }
+                                    else if (balticAvenue.houseAmount == 4) {
+                                        document.getElementById("payment").innerHTML = " 320"
+                                        cash1 -= 320
+                                        cash3 += 320
+                                    }
+                                    else if (balticAvenue.houseAmount == 5) {
+                                        document.getElementById("payment").innerHTML = " 450"
+                                        cash1 -= 450
+                                        cash3 += 450
+                                    }
+                                }
+                                else if (balticAvenue.owner == 4) {
+                                    document.getElementById("pay").style.display = "block"
+                                    document.getElementById("owner").innerHTML = " 4"
+                                    if (balticAvenue.houseAmount == 0) {
+                                        document.getElementById("payment").innerHTML = " 4"
+                                        cash1 -= 4
+                                        cash4 += 4
+                                    }
+                                    else if (balticAvenue.houseAmount == 1) {
+                                        document.getElementById("payment").innerHTML = " 20"
+                                        cash1 -= 20
+                                        cash4 += 20
+                                    }
+                                    else if (balticAvenue.houseAmount == 2) {
+                                        document.getElementById("payment").innerHTML = " 60"
+                                        cash1 -= 60
+                                        cash4 += 60
+                                    }
+                                    else if (balticAvenue.houseAmount == 3) {
+                                        document.getElementById("payment").innerHTML = " 180" 
+                                        cash1 -= 180
+                                        cash4 += 180
+                                    }
+                                    else if (balticAvenue.houseAmount == 4) {
+                                        document.getElementById("payment").innerHTML = " 320"
+                                        cash1 -= 320
+                                        cash4 += 320
+                                    }
+                                    else if (balticAvenue.houseAmount == 5) {
+                                        document.getElementById("payment").innerHTML = " 450"
+                                        cash1 -= 450
+                                        cash4 += 450
+                                    }
+                                }
                             }
                             if (position1 == 4) {
                                 cash1 -= incomeTax.taxAmount
@@ -4238,7 +4846,9 @@ start.onclick = function () {
                                 }
                             }
                             if (position1 == 6) {
-
+                                if (orientalAvenue.bought == false) {
+                                    
+                                }
                             }
                             if (position1 == 7) {
                                 chanceCardDraw()
