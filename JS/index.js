@@ -1581,6 +1581,14 @@ start.onclick = function () {
         }
     }
     function houseCheck() {
+        house1 = 0
+        hotel1 = 0
+        house2 = 0
+        hotel2 = 0
+        house3 = 0
+        hotel3 = 0
+        house4 = 0
+        hotel4 = 0
         if (mediteraneanAvenue.owner == 1) {
             if (mediteraneanAvenue.houseAmount == 1) house1++
             else if (mediteraneanAvenue.houseAmount == 2) house1 += 2
@@ -4426,68 +4434,6 @@ start.onclick = function () {
             cash4 += go.amount
         }
     }
-    function tax() {
-        if (position1 == incomeTax.place && taxTurn1 == true) {
-            cash1 -= incomeTax.taxAmount
-            freeParking.collectedTax += incomeTax.taxAmount
-            taxTurn1 = false
-        }
-        if (position1 == luxuryTax.place && taxTurn1 == true) {
-            cash1 -= luxuryTax.taxAmount
-            freeParking.collectedTax += luxuryTax.taxAmount
-            taxTurn1 = false
-        }
-        if (position1 == freeParking.place && taxTurn1 == true) {
-            cash1 += freeParking.collectedTax
-            freeParking.collectedTax = 0
-            taxTurn1 = false
-        }
-        if (position2 == incomeTax.place && taxTurn2 == true) {
-            cash2 -= incomeTax.taxAmount
-            freeParking.collectedTax += incomeTax.taxAmount
-            taxTurn2 = false
-        }
-        if (position2 == luxuryTax.place && taxTurn2 == true) {
-            cash2 -= luxuryTax.taxAmount
-            freeParking.collectedTax += luxuryTax.taxAmount
-            taxTurn2 = false
-        }
-        if (position2 == freeParking.place && taxTurn2 == true) {
-            cash2 += freeParking.collectedTax
-            freeParking.collectedTax = 0
-            taxTurn2 = false
-        }
-        if (position3 == incomeTax.place && taxTurn3 == true) {
-            cash3 -= incomeTax.taxAmount
-            freeParking.collectedTax += incomeTax.taxAmount
-            taxTurn3 = false
-        }
-        if (position3 == luxuryTax.place && taxTurn3 == true) {
-            cash1 -= luxuryTax.taxAmount
-            freeParking.collectedTax += luxuryTax.taxAmount
-            taxTurn3 = false
-        }
-        if (position3 == freeParking.place && taxTurn3 == true) {
-            cash3 += freeParking.collectedTax
-            freeParking.collectedTax = 0
-            taxTurn3 = false
-        }
-        if (position4 == incomeTax.place && taxTurn4 == true) {
-            cash1 -= incomeTax.taxAmount
-            freeParking.collectedTax += incomeTax.taxAmount
-            taxTurn4 = false
-        }
-        if (position4 == luxuryTax.place && taxTurn4 == true) {
-            cash1 -= luxuryTax.taxAmount
-            freeParking.collectedTax += luxuryTax.taxAmount
-            taxTurn4 = false
-        }
-        if (position4 == freeParking.place && taxTurn4 == true) {
-            cash1 += freeParking.collectedTax
-            freeParking.collectedTax = 0
-            taxTurn4 = false
-        }
-    }
     function draw1() {
         ctx.beginPath()
         ctx.fillStyle = player1color
@@ -4783,6 +4729,7 @@ start.onclick = function () {
                             }
                             if (position1 == 4) {
                                 cash1 -= incomeTax.taxAmount
+                                freeParking.collectedTax += incomeTax.taxAmount
                             }
                             if (position1 == 5) {
                                 if (readingRailroad.bought == false) {
@@ -4847,7 +4794,115 @@ start.onclick = function () {
                             }
                             if (position1 == 6) {
                                 if (orientalAvenue.bought == false) {
-                                    
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("place").innerHTML = " Oriental Avenue "
+                                    document.getElementById("price").innerHTML = " " + orientalAvenue.price
+                                }
+                                else if (orientalAvenue.owner == 1 && orientalAvenue.houseAmount < 5) {
+                                    document.getElementById("house").style.display = "block"
+                                    document.getElementById("houseprice").innerHTML = " " + 50
+                                }
+                                else if (orientalAvenue.owner == 2) {
+                                    document.getElementById("pay").style.display = "block"
+                                    document.getElementById("owner").innerHTML = " 2"
+                                    if (orientalAvenue.houseAmount == 0) {
+                                        document.getElementById("payment").innerHTML = " 6"
+                                        cash1 -= 6
+                                        cash2 += 6
+                                    }
+                                    else if (orientalAvenue.houseAmount == 1) {
+                                        document.getElementById("payment").innerHTML = " 30"
+                                        cash1 -= 30
+                                        cash2 += 30
+                                    }
+                                    else if (orientalAvenue.houseAmount == 2) {
+                                        document.getElementById("payment").innerHTML = " 90"
+                                        cash1 -= 90
+                                        cash2 += 90
+                                    }
+                                    else if (orientalAvenue.houseAmount == 3) {
+                                        document.getElementById("payment").innerHTML = " 270"
+                                        cash1 -= 270
+                                        cash2 += 270
+                                    }
+                                    else if (orientalAvenue.houseAmount == 4) {
+                                        document.getElementById("payment").innerHTML = " 400"
+                                        cash1 -= 400
+                                        cash2 += 400
+                                    }
+                                    else if (orientalAvenue.houseAmount == 5) {
+                                        document.getElementById("payment").innerHTML = " 550"
+                                        cash1 -= 550
+                                        cash2 += 550
+                                    }
+                                }
+                                else if (orientalAvenue.owner == 3) {
+                                    document.getElementById("pay").style.display = "block"
+                                    document.getElementById("owner").innerHTML = " 3"
+                                    if (orientalAvenue.houseAmount == 0) {
+                                        document.getElementById("payment").innerHTML = " 6"
+                                        cash1 -= 6
+                                        cash3 += 6
+                                    }
+                                    else if (orientalAvenue.houseAmount == 1) {
+                                        document.getElementById("payment").innerHTML = " 30"
+                                        cash1 -= 30
+                                        cash3 += 30
+                                    }
+                                    else if (orientalAvenue.houseAmount == 2) {
+                                        document.getElementById("payment").innerHTML = " 90"
+                                        cash1 -= 90
+                                        cash3 += 90
+                                    }
+                                    else if (orientalAvenue.houseAmount == 3) {
+                                        document.getElementById("payment").innerHTML = " 270"
+                                        cash1 -= 270
+                                        cash3 += 270
+                                    }
+                                    else if (orientalAvenue.houseAmount == 4) {
+                                        document.getElementById("payment").innerHTML = " 400"
+                                        cash1 -= 400
+                                        cash3 += 400
+                                    }
+                                    else if (orientalAvenue.houseAmount == 5) {
+                                        document.getElementById("payment").innerHTML = " 550"
+                                        cash1 -= 550
+                                        cash3 += 550
+                                    }
+                                }
+                                else if (orientalAvenue.owner == 4) {
+                                    document.getElementById("pay").style.display = "block"
+                                    document.getElementById("owner").innerHTML = " 4"
+                                    if (orientalAvenue.houseAmount == 0) {
+                                        document.getElementById("payment").innerHTML = " 6"
+                                        cash1 -= 6
+                                        cash4 += 6
+                                    }
+                                    else if (orientalAvenue.houseAmount == 1) {
+                                        document.getElementById("payment").innerHTML = " 30"
+                                        cash1 -= 30
+                                        cash4 += 30
+                                    }
+                                    else if (orientalAvenue.houseAmount == 2) {
+                                        document.getElementById("payment").innerHTML = " 90"
+                                        cash1 -= 90
+                                        cash4 += 90
+                                    }
+                                    else if (orientalAvenue.houseAmount == 3) {
+                                        document.getElementById("payment").innerHTML = " 270"
+                                        cash1 -= 270
+                                        cash4 += 270
+                                    }
+                                    else if (orientalAvenue.houseAmount == 4) {
+                                        document.getElementById("payment").innerHTML = " 400"
+                                        cash1 -= 400
+                                        cash4 += 400
+                                    }
+                                    else if (orientalAvenue.houseAmount == 5) {
+                                        document.getElementById("payment").innerHTML = " 550"
+                                        cash1 -= 550
+                                        cash4 += 550
+                                    }
                                 }
                             }
                             if (position1 == 7) {
@@ -4949,6 +5004,7 @@ start.onclick = function () {
                             }
                             if (position1 == 20) {
                                 cash1 += freeParking.collectedTax
+                                freeParking.collectedTax = 0
                             }
                             if (position1 == 21) {
 
@@ -5120,6 +5176,7 @@ start.onclick = function () {
                             }
                             if (position1 == 38) {
                                 cash1 -= luxuryTax.taxAmount
+                                freeParking.collectedTax += luxuryTax.taxAmount
                             }
                             if (position1 == 39) {
 
@@ -5129,12 +5186,14 @@ start.onclick = function () {
                 }
             }
             else if (double) {
+                bankruptCheck()
                 roll = false
                 document.getElementById("pay").style.display = "none"
                 document.getElementById("house").style.display = "none"
                 document.getElementById("buy").style.display = "none"
             }
             else {
+                bankruptCheck()
                 if (inJail1 > 0) inJail1--
                 turn1 = false
                 roll = false
@@ -5152,6 +5211,7 @@ start.onclick = function () {
             if (roll == true) {
 
             } else {
+                bankruptch
                 turn2 = false
                 roll = false
                 turn2over = true
@@ -5201,7 +5261,6 @@ start.onclick = function () {
         if (alive) {
             draw()
             pastGo()
-            tax()
             move()
         }
         // else if () {
