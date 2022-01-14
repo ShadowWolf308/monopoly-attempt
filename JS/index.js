@@ -768,8 +768,8 @@ start.onclick = function () {
     canvas.width = 700
     canvas.height = 700
     alive = true
-    var go, chance1, chance2, chance3, communityChest1, communityChest2, communityChest3, incomeTax, luxuryTax, freeParking, jail, goToJail, readingRailroad, pennsylvaniaRailroad, bAndORailroad, shortLine, utilityFull, electricCompany, waterWorks, brownStreetsFull, mediteraneanAvenue, balticAvenue, lightblueStreetsFull, orientalAvenue, vermontAvenue, connecticutAvenue, pinkStreetsFull, stCharlesPlace, statesAvenue, virginiaAvenue, orangeStreetsFull, stJamesPlace, tennesseeAvenue, newYorkAvenue, redStreetsFull, kentuckyAvenue, indianaAvenue, illinoisAvenue, yellowStreetsFull, atlanticAvenue, ventnorAvenue, marvinGardens, greenStreetsFull, pacificAvenue, northCarolinaAvenue, pennsylvaniaAvenue, blueStreetsFull, parkPlace, boardwalk
-    var position1, position2, position3, position4, cash1, cash2, cash3, cash4, turn1, turn2, turn3, turn4, taxTurn1, taxTurn2, taxTurn3, taxTurn4, x1, y1, x2, y2, x3, y3, x4, y4, width, height, roll, yes, no, rollDone, turn1over, turn2over, turn3over, turn4over, rollAmount1, rollAmount2, doubleAmount, double, inJail1, inJail2, inJail3, inJail4, bankrupt1, bankrupt2, bankrupt3, bankrupt4, jailcard1, jailcard2, jailcard3, jailcard4, railroadsOwned1, railroadsOwned2, railroadsOwned3, railroadsOwned4, house1, house2, house3, house4, hotel1, hotel2, hotel3, hotel4
+    var go, incomeTax, luxuryTax, freeParking, readingRailroad, pennsylvaniaRailroad, bAndORailroad, shortLine, electricCompany, waterWorks, mediteraneanAvenue, balticAvenue, orientalAvenue, vermontAvenue, connecticutAvenue, stCharlesPlace, statesAvenue, virginiaAvenue, stJamesPlace, tennesseeAvenue, newYorkAvenue, kentuckyAvenue, indianaAvenue, illinoisAvenue, atlanticAvenue, ventnorAvenue, marvinGardens, pacificAvenue, northCarolinaAvenue, pennsylvaniaAvenue, parkPlace, boardwalk
+    var position1, position2, position3, position4, cash1, cash2, cash3, cash4, turn1, turn2, turn3, turn4, x1, y1, x2, y2, x3, y3, x4, y4, width, height, roll, yes, no, rollDone, turn1over, turn2over, turn3over, turn4over, rollAmount1, rollAmount2, doubleAmount, double, inJail1, inJail2, inJail3, inJail4, bankrupt1, bankrupt2, bankrupt3, bankrupt4, jailcard1, jailcard2, jailcard3, jailcard4, railroadsOwned1, railroadsOwned2, railroadsOwned3, railroadsOwned4, house1, house2, house3, house4, hotel1, hotel2, hotel3, hotel4
     cash1 = 2500
     cash2 = 2500
     cash3 = 2500
@@ -829,9 +829,6 @@ start.onclick = function () {
         'price': 60,
         'owner': 0
     }
-    communityChest1 = {
-        'place': 2
-    }
     balticAvenue = {
         'place': 3,
         'bought': false,
@@ -856,9 +853,6 @@ start.onclick = function () {
         'price': 100,
         'owner': 0
     }
-    chance1 = {
-        'place': 7,
-    }
     vermontAvenue = {
         'place': 8,
         'bought': false,
@@ -872,9 +866,6 @@ start.onclick = function () {
         'houseAmount': 0,
         'price': 120,
         'owner': 0
-    }
-    jail = {
-        'place': 10
     }
     stCharlesPlace = {
         'place': 11,
@@ -916,9 +907,6 @@ start.onclick = function () {
         'price': 180,
         'owner': 0
     }
-    communityChest2 = {
-        'place': 17,
-    }
     tennesseeAvenue = {
         'place': 18,
         'bought': false,
@@ -943,9 +931,6 @@ start.onclick = function () {
         'houseAmount': 0,
         'price': 220,
         'owner': 0
-    }
-    chance2 = {
-        'place': 22
     }
     indianaAvenue = {
         'place': 23,
@@ -994,9 +979,6 @@ start.onclick = function () {
         'price': 280,
         'owner': 0
     }
-    goToJail = {
-        'place': 30
-    }
     pacificAvenue = {
         'place': 31,
         'bought': false,
@@ -1011,9 +993,6 @@ start.onclick = function () {
         'price': 300,
         'owner': 0
     }
-    communityChest3 = {
-        'place': 33
-    }
     pennsylvaniaAvenue = {
         'place': 34,
         'bought': false,
@@ -1026,9 +1005,6 @@ start.onclick = function () {
         'bought': false,
         'price': 200,
         'owner': 0
-    }
-    chance3 = {
-        'place': 36
     }
     parkPlace = {
         'place': 37,
@@ -4909,7 +4885,12 @@ start.onclick = function () {
                                 chanceCardDraw()
                             }
                             if (position1 == 8) {
-
+                                if (vermontAvenue.bought == false) {
+                                    
+                                }
+                                else if (vermontAvenue.owner == 2) {
+                                    
+                                }
                             }
                             if (position1 == 9) {
 
@@ -5211,7 +5192,6 @@ start.onclick = function () {
             if (roll == true) {
 
             } else {
-                bankruptch
                 turn2 = false
                 roll = false
                 turn2over = true
