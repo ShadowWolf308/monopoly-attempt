@@ -4687,7 +4687,7 @@ start.onclick = function () {
                                         cash4 += 60
                                     }
                                     else if (balticAvenue.houseAmount == 3) {
-                                        document.getElementById("payment").innerHTML = " 180" 
+                                        document.getElementById("payment").innerHTML = " 180"
                                         cash1 -= 180
                                         cash4 += 180
                                     }
@@ -4886,23 +4886,242 @@ start.onclick = function () {
                             }
                             if (position1 == 8) {
                                 if (vermontAvenue.bought == false) {
-                                    
+                                    document.getElementById("place").innerHTML = " Vermont Avenue "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + vermontAvenue.price
+                                }
+                                else if (vermontAvenue.owner == 1 && vermontAvenue.houseAmount < 5) {
+
                                 }
                                 else if (vermontAvenue.owner == 2) {
-                                    
+                                    if (vermontAvenue.houseAmount == 0) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 1) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 2) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 3) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 4) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 5) {
+
+                                    }
+                                }
+                                else if (vermontAvenue.owner == 3) {
+                                    if (vermontAvenue.houseAmount == 0) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 1) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 2) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 3) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 4) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 5) {
+
+                                    }
+                                }
+                                else if (vermontAvenue.owner == 4) {
+                                    if (vermontAvenue.houseAmount == 0) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 1) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 2) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 3) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 4) {
+
+                                    }
+                                    else if (vermontAvenue.houseAmount == 5) {
+
+                                    }
                                 }
                             }
                             if (position1 == 9) {
+                                if (connecticutAvenue.bought == false) {
+                                    document.getElementById("place").innerHTML = " Connecticut Avenue "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + connecticutAvenue.price
+                                }
+                                else if (connecticutAvenue.owner == 1 && connecticutAvenue.houseAmount < 5) {
 
-                            }
-                            if (position1 == 10) {
+                                }
+                                else if (connecticutAvenue.owner == 2) {
+                                    if (connecticutAvenue.houseAmount == 0) {
 
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 1) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 2) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 3) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 4) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 5) {
+
+                                    }
+                                }
+                                else if (connecticutAvenue.owner == 3) {
+                                    if (connecticutAvenue.houseAmount == 0) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 1) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 2) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 3) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 4) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 5) {
+
+                                    }
+                                }
+                                else if (connecticutAvenue.owner == 4) {
+                                    if (connecticutAvenue.houseAmount == 0) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 1) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 2) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 3) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 4) {
+
+                                    }
+                                    else if (connecticutAvenue.houseAmount == 5) {
+
+                                    }
+                                }
                             }
                             if (position1 == 11) {
+                                if (stCharlesPlace.bought == false) {
+                                    document.getElementById("place").innerHTML = " ST. Charles Place "
+                                    document.getElementById("buy").style.display = "block"
+                                    document.getElementById("price").innerHTML = " " + stCharlesPlace.price
+                                }
+                                else if (stCharlesPlace.owner == 1 && stCharlesPlace.houseAmount < 5) {
 
+                                }
+                                else if (stCharlesPlace.owner == 2) {
+                                    if (stCharlesPlace.houseAmount == 0) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 1) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 2) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 3) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 4) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 5) {
+
+                                    }
+                                }
+                                else if (stCharlesPlace.owner == 3) {
+                                    if (stCharlesPlace.houseAmount == 0) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 1) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 2) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 3) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 4) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 5) {
+
+                                    }
+                                }
+                                else if (stCharlesPlace.owner == 4) {
+                                    if (stCharlesPlace.houseAmount == 0) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 1) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 2) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 3) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 4) {
+
+                                    }
+                                    else if (stCharlesPlace.houseAmount == 5) {
+
+                                    }
+                                }
                             }
                             if (position1 == 12) {
+                                if (electricCompany.bought == false) {
 
+                                }
+                                else if (electricCompany.owner == 2) {
+                                    if (waterWorks.owner == 2) {
+
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                else if (electricCompany.owner == 3) {
+                                    if (waterWorks.owner == 3) {
+
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                else if (electricCompany.owner == 4) {
+                                    if (waterWorks.owner == 4) {
+
+                                    }
+                                    else {
+                                        
+                                    }
+                                }
                             }
                             if (position1 == 13) {
 
