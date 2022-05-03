@@ -4453,7 +4453,7 @@ start.onclick = function () {
                     rollAmount1 = Math.floor(Math.random() * 6) + 1
                     rollAmount2 = Math.floor(Math.random() * 6) + 1
                     position1 += rollAmount1 + rollAmount2
-                    document.getElementById("roll").style.display = block
+                    document.getElementById("roll").style.display = "block"
                     document.getElementById("rollamount1").innerHTML = rollAmount1
                     document.getElementById("rollamount2").innerHTML = rollAmount2
                     if (rollAmount1 == rollAmount2) {
@@ -4891,26 +4891,27 @@ start.onclick = function () {
                                     document.getElementById("price").innerHTML = " " + vermontAvenue.price
                                 }
                                 else if (vermontAvenue.owner == 1 && vermontAvenue.houseAmount < 5) {
-
+                                    document.getElementById("house").style.display = "block"
+                                    document.getElementById("houseprice").innerHTML = " " + 50
                                 }
                                 else if (vermontAvenue.owner == 2) {
                                     if (vermontAvenue.houseAmount == 0) {
-
+                                        document.getElementById("payment").innerHTML = ""
                                     }
                                     else if (vermontAvenue.houseAmount == 1) {
-
+                                        document.getElementById("payment").innerHTML = ""
                                     }
                                     else if (vermontAvenue.houseAmount == 2) {
-
+                                        document.getElementById("payment").innerHTML = ""
                                     }
                                     else if (vermontAvenue.houseAmount == 3) {
-
+                                        document.getElementById("payment").innerHTML = ""
                                     }
                                     else if (vermontAvenue.houseAmount == 4) {
-
+                                        document.getElementById("payment").innerHTML = ""
                                     }
                                     else if (vermontAvenue.houseAmount == 5) {
-
+                                        document.getElementById("payment").innerHTML = ""
                                     }
                                 }
                                 else if (vermontAvenue.owner == 3) {
