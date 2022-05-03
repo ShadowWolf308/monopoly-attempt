@@ -5379,7 +5379,21 @@ start.onclick = function () {
                                 freeParking.collectedTax += luxuryTax.taxAmount
                             }
                             if (position1 == 39) {
+                                if (boardwalk.bought == false) {
 
+                                }
+                                else if (boardwalk.owner == 1) {
+
+                                }
+                                else if (boardwalk.owner == 2) {
+
+                                }
+                                else if (boardwalk.owner == 3) {
+
+                                }
+                                else if (boardwalk.owner == 4) {
+                                    
+                                }
                             }
                         }, 500);
                     }
